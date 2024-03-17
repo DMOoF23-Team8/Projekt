@@ -1,0 +1,2 @@
+\RallyBuilder\bin
+\RallyBuilder\obj
