@@ -1,22 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
-using RallyBuilder.Data;
-using RallyBuilder.Models;
 using System.Diagnostics;
+using RallyBuilder.Services;
+using RallyBuilder.Services.Services;
 
 namespace RallyBuilder.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Home()
+        private readonly IRallyService _rallyService;
+        public HomeController(IRallyService rallyService)
         {
-            List<Rally> rallies = _db.Rallies.ToList();
-            return View(rallies);
+            _rallyService = rallyService;
         }
 
-        private readonly DatabaseContext _db;
-        public HomeController(DatabaseContext db)
+        [HttpGet]
+        public async Task<IActionResult> Home()
         {
-            _db = db;
+            return View(await _rallyService.GetAllRallies());
         }
     }
 }

@@ -1,33 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RallyBuilder.Data;
 using RallyBuilder.Models;
+using RallyBuilder.Services;
 
 namespace RallyBuilder.Controllers
 {
     public class RallyController : Controller
     {
-
+        
         public IActionResult Create()
         {
             return View();
         }
-
+        /*
         [HttpPost]
         public IActionResult Create(Rally rally)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Rallies.Add(rally);
-                _db.SaveChanges();
-                return RedirectToAction("Home", "Home");
-            }
             return View();
         }
-
-        private readonly DatabaseContext _db;
-        public RallyController(DatabaseContext db)
+        */
+        private readonly IRallyService _rallyService;
+        public RallyController(IRallyService rallyService)
         {
-            _db = db;
+            _rallyService = rallyService;
         }
     }
 }

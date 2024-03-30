@@ -4,14 +4,79 @@
     "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder\\RallyBuilder.csproj": {}
   },
   "projects": {
-    "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder\\RallyBuilder.csproj": {
+    "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.DataAccess\\RallyBuilder.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder\\RallyBuilder.csproj",
-        "projectName": "RallyBuilder",
-        "projectPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder\\RallyBuilder.csproj",
+        "projectUniqueName": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.DataAccess\\RallyBuilder.DataAccess.csproj",
+        "projectName": "RallyBuilder.DataAccess",
+        "projectPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.DataAccess\\RallyBuilder.DataAccess.csproj",
         "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder\\obj\\",
+        "outputPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\A\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Models\\RallyBuilder.Models.csproj": {
+                "projectPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Models\\RallyBuilder.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Models\\RallyBuilder.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Models\\RallyBuilder.Models.csproj",
+        "projectName": "RallyBuilder.Models",
+        "projectPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Models\\RallyBuilder.Models.csproj",
+        "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\A\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,20 +104,137 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Services\\RallyBuilder.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Services\\RallyBuilder.Services.csproj",
+        "projectName": "RallyBuilder.Services",
+        "projectPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Services\\RallyBuilder.Services.csproj",
+        "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\A\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.DataAccess\\RallyBuilder.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.DataAccess\\RallyBuilder.DataAccess.csproj"
+              },
+              "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Models\\RallyBuilder.Models.csproj": {
+                "projectPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Models\\RallyBuilder.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder\\RallyBuilder.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder\\RallyBuilder.csproj",
+        "projectName": "RallyBuilder",
+        "projectPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder\\RallyBuilder.csproj",
+        "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\A\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Services\\RallyBuilder.Services.csproj": {
+                "projectPath": "C:\\Users\\A\\Desktop\\RallyBuilder\\RallyBuilder.Services\\RallyBuilder.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.0-preview.1.24081.2, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.0-preview.1.24081.2, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.0-preview.1.24081.2, )"
+              "version": "[8.0.3, )"
             }
           },
           "imports": [

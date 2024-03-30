@@ -1,2 +1,2 @@
-\RallyBuilder\bin
-\RallyBuilder\obj
+**/bin
+**/obj
