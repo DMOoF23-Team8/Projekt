@@ -1,7 +1,6 @@
 using RallyBuilder.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using RallyBuilder.Services;
-using RallyBuilder.Services.Services;
 
 namespace RallyBuilder
 {
@@ -15,8 +14,6 @@ namespace RallyBuilder
                 builder.Services.AddDbContextFactory<ApplicationDatabaseContext>(
                     options => options.UseSqlServer(
                         builder.Configuration.GetConnectionString("DefaultConnection"),
-
-                        //TIL MIGRATIONS I ANDEN FOLDER
                         assembly => assembly.MigrationsAssembly("RallyBuilder.DataAccess"))
                     );
 

@@ -8,7 +8,7 @@ using RallyBuilder.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using RallyBuilder.Models;
 
-namespace RallyBuilder.Services.Services
+namespace RallyBuilder.Services
 {
     public class RallyService : IRallyService
     {
