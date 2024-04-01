@@ -1,6 +1,8 @@
 using RallyBuilder.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using RallyBuilder.Services;
+using Microsoft.AspNetCore.Identity;
+using RallyBuilder.Models;
 
 namespace RallyBuilder
 {
@@ -16,22 +18,28 @@ namespace RallyBuilder
                         builder.Configuration.GetConnectionString("DefaultConnection"),
                         assembly => assembly.MigrationsAssembly("RallyBuilder.DataAccess"))
                     );
-
+                builder.Services.AddDefaultIdentity<ApplicationUser>().AddEntityFrameworkStores<ApplicationDatabaseContext>();
+                builder.Services.AddRazorPages();
                 builder.Services.AddScoped<IRallyService, RallyService>();
             }
 
+
             WebApplication app = builder.Build();
             {
-                if (!app.Environment.IsDevelopment())
+                switch (app.Environment.IsDevelopment())
                 {
-                    app.UseExceptionHandler("/Home/Error");
-                    app.UseHsts();
+                    case true:
+                    case false:
+                        app.UseHsts();
+                        break;
                 }
 
                 app.UseHttpsRedirection();
                 app.UseStaticFiles();
                 app.UseRouting();
+                app.UseAuthentication();
                 app.UseAuthorization();
+                app.MapRazorPages();
                 app.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Home}");
