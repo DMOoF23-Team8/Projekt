@@ -24,3 +24,16 @@ C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Models\obj\Debug\net8.0\Rall
 C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Models\obj\Debug\net8.0\refint\RallyBuilder.Models.dll
 C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Models\obj\Debug\net8.0\RallyBuilder.Models.pdb
 C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Models\obj\Debug\net8.0\ref\RallyBuilder.Models.dll
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\bin\Debug\net8.0\RallyBuilder.Models.deps.json
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\bin\Debug\net8.0\RallyBuilder.Models.dll
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\bin\Debug\net8.0\RallyBuilder.Models.pdb
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\RallyBuilder.Models.csproj.AssemblyReference.cache
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\RallyBuilder.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\RallyBuilder.Models.AssemblyInfoInputs.cache
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\RallyBuilder.Models.AssemblyInfo.cs
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\RallyBuilder.Models.csproj.CoreCompileInputs.cache
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\RallyBuilder.Models.sourcelink.json
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\RallyBuilder.Models.dll
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\refint\RallyBuilder.Models.dll
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\RallyBuilder.Models.pdb
+C:\Users\A\Desktop\Projekt\RallyBuilder.Models\obj\Debug\net8.0\ref\RallyBuilder.Models.dll

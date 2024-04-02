@@ -801,11 +801,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\A\\Desktop\\ProjectReal\\Projekt\\RallyBuilder.Utilities\\RallyBuilder.Utilities.csproj",
+      "projectUniqueName": "C:\\Users\\A\\Desktop\\Projekt\\RallyBuilder.Utilities\\RallyBuilder.Utilities.csproj",
       "projectName": "RallyBuilder.Utilities",
-      "projectPath": "C:\\Users\\A\\Desktop\\ProjectReal\\Projekt\\RallyBuilder.Utilities\\RallyBuilder.Utilities.csproj",
+      "projectPath": "C:\\Users\\A\\Desktop\\Projekt\\RallyBuilder.Utilities\\RallyBuilder.Utilities.csproj",
       "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\A\\Desktop\\ProjectReal\\Projekt\\RallyBuilder.Utilities\\obj\\",
+      "outputPath": "C:\\Users\\A\\Desktop\\Projekt\\RallyBuilder.Utilities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\A\\AppData\\Roaming\\NuGet\\NuGet.Config",

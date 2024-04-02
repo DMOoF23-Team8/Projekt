@@ -564,11 +564,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\A\\Desktop\\ProjectReal\\Projekt\\RallyBuilder.Models\\RallyBuilder.Models.csproj",
+      "projectUniqueName": "C:\\Users\\A\\Desktop\\Projekt\\RallyBuilder.Models\\RallyBuilder.Models.csproj",
       "projectName": "RallyBuilder.Models",
-      "projectPath": "C:\\Users\\A\\Desktop\\ProjectReal\\Projekt\\RallyBuilder.Models\\RallyBuilder.Models.csproj",
+      "projectPath": "C:\\Users\\A\\Desktop\\Projekt\\RallyBuilder.Models\\RallyBuilder.Models.csproj",
       "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\A\\Desktop\\ProjectReal\\Projekt\\RallyBuilder.Models\\obj\\",
+      "outputPath": "C:\\Users\\A\\Desktop\\Projekt\\RallyBuilder.Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\A\\AppData\\Roaming\\NuGet\\NuGet.Config",
