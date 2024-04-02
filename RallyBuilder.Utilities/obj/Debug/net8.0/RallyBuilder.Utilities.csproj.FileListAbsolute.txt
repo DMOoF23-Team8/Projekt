@@ -1,0 +1,13 @@
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\bin\Debug\net8.0\RallyBuilder.Utilities.deps.json
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\bin\Debug\net8.0\RallyBuilder.Utilities.dll
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\bin\Debug\net8.0\RallyBuilder.Utilities.pdb
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\RallyBuilder.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\RallyBuilder.Utilities.AssemblyInfoInputs.cache
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\RallyBuilder.Utilities.AssemblyInfo.cs
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\RallyBuilder.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\RallyBuilder.Utilities.sourcelink.json
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\RallyBuilder.Utilities.dll
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\refint\RallyBuilder.Utilities.dll
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\RallyBuilder.Utilities.pdb
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\ref\RallyBuilder.Utilities.dll
+C:\Users\A\Desktop\ProjectReal\Projekt\RallyBuilder.Utilities\obj\Debug\net8.0\RallyBuilder.Utilities.csproj.AssemblyReference.cache

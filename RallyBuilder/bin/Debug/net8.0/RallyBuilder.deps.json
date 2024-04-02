@@ -14,7 +14,8 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.3",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.2",
-          "RallyBuilder.Services": "1.0.0"
+          "RallyBuilder.Services": "1.0.0",
+          "RallyBuilder.Utilities": "1.0.0"
         },
         "runtime": {
           "RallyBuilder.dll": {}
@@ -2156,6 +2157,14 @@
         "runtime": {
           "RallyBuilder.Services.dll": {}
         }
+      },
+      "RallyBuilder.Utilities/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "8.0.3"
+        },
+        "runtime": {
+          "RallyBuilder.Utilities.dll": {}
+        }
       }
     }
   },
@@ -3394,6 +3403,11 @@
       "sha512": ""
     },
     "RallyBuilder.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RallyBuilder.Utilities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

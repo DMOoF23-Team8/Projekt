@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RallyBuilder.DataAccess", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RallyBuilder.Services", "RallyBuilder.Services\RallyBuilder.Services.csproj", "{EDBA4A8F-B3DC-43D2-A964-07797186CDD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RallyBuilder.Utilities", "RallyBuilder.Utilities\RallyBuilder.Utilities.csproj", "{2B685706-8961-4EA5-A8DD-107CEF608629}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EDBA4A8F-B3DC-43D2-A964-07797186CDD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDBA4A8F-B3DC-43D2-A964-07797186CDD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDBA4A8F-B3DC-43D2-A964-07797186CDD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B685706-8961-4EA5-A8DD-107CEF608629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B685706-8961-4EA5-A8DD-107CEF608629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B685706-8961-4EA5-A8DD-107CEF608629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B685706-8961-4EA5-A8DD-107CEF608629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

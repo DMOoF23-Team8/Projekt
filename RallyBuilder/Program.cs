@@ -2,7 +2,8 @@ using RallyBuilder.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using RallyBuilder.Services;
 using Microsoft.AspNetCore.Identity;
-using RallyBuilder.Models;
+using RallyBuilder.Utilities;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace RallyBuilder
 {
@@ -18,9 +19,10 @@ namespace RallyBuilder
                         builder.Configuration.GetConnectionString("DefaultConnection"),
                         assembly => assembly.MigrationsAssembly("RallyBuilder.DataAccess"))
                     );
-                builder.Services.AddDefaultIdentity<ApplicationUser>().AddEntityFrameworkStores<ApplicationDatabaseContext>();
+                builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDatabaseContext>();
                 builder.Services.AddRazorPages();
                 builder.Services.AddScoped<IRallyService, RallyService>();
+                builder.Services.AddScoped<IEmailSender, EmailSender>();
             }
 
 
