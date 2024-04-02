@@ -881,3 +881,5 @@ C:\Users\A\Desktop\Projekt\RallyBuilder\obj\Debug\net8.0\refint\RallyBuilder.dll
 C:\Users\A\Desktop\Projekt\RallyBuilder\obj\Debug\net8.0\RallyBuilder.pdb
 C:\Users\A\Desktop\Projekt\RallyBuilder\obj\Debug\net8.0\RallyBuilder.genruntimeconfig.cache
 C:\Users\A\Desktop\Projekt\RallyBuilder\obj\Debug\net8.0\ref\RallyBuilder.dll
+C:\Users\Aleksandar\Desktop\Projekt\RallyBuilder\bin\Debug\net8.0\RallyBuilder.Utilities.dll
+C:\Users\Aleksandar\Desktop\Projekt\RallyBuilder\bin\Debug\net8.0\RallyBuilder.Utilities.pdb

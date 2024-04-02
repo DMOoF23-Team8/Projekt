@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RallyBuilder.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9e37af409ceb99ee38cda8d78bcaf35cb623b50")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a7165cd43ceac0332eb03f60e26964bc44f598b")]
 [assembly: System.Reflection.AssemblyProductAttribute("RallyBuilder.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RallyBuilder.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
