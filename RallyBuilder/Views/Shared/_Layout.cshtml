@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RallyBuilder</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
 
@@ -19,19 +22,34 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-light" asp-controller="Home" asp-action="Home">
+                    <a class="nav-link text-light" asp-controller="Home" asp-action="Index">
                         Startside
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-light" asp-controller="Rally" asp-action="Create">
-                        Se rallies
+                    <a class="nav-link text-light" asp-controller="Rallies" asp-action="All">
+                        Se Rallies
                     </a>
                 </li>
 
+                @if (User.IsInRole(SD.Role_User))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-controller="Rallies" asp-action="UserCreateRally">
+                            Opret Rally
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-controller="Rallies" asp-action="UserRallies">
+                            Mine Rallies
+                        </a>
+                    </li>
+                }
+
             </ul>
-            <partial name="_LoginPartial"/>
+            <partial name="_LoginPartial" />
         </nav>
     </header>
 

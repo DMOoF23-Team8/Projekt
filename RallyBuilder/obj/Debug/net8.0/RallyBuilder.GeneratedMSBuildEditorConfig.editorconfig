@@ -142,6 +142,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Aleksandar/Desktop/Projekt/RallyBuilder/Areas/Identity/Pages/Account/Manage/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Aleksandar/Desktop/Projekt/RallyBuilder/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -186,12 +190,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Aleksandar/Desktop/Projekt/RallyBuilder/Views/Home/Home.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+[C:/Users/Aleksandar/Desktop/Projekt/RallyBuilder/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Aleksandar/Desktop/Projekt/RallyBuilder/Views/Rally/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFsbHlcQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Aleksandar/Desktop/Projekt/RallyBuilder/Views/Rallies/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFsbGllc1xBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aleksandar/Desktop/Projekt/RallyBuilder/Views/Rallies/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFsbGllc1xOZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Aleksandar/Desktop/Projekt/RallyBuilder/Views/Rallies/UserRallies.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFsbGllc1xVc2VyUmFsbGllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Aleksandar/Desktop/Projekt/RallyBuilder/Views/Shared/_LoginPartial.cshtml]

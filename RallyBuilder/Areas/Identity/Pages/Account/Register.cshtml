@@ -16,6 +16,11 @@
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
+                <input asp-for="Input.Name" class="form-control" />
+                <label asp-for="Input.Name">Navn</label>
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
                 <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
                 <label asp-for="Input.Password">Password</label>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
@@ -25,6 +30,7 @@
                 <label asp-for="Input.ConfirmPassword">Gentag Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Opret</button>
         </form>
     </div>

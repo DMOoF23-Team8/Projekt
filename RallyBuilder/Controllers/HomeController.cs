@@ -13,9 +13,9 @@ namespace RallyBuilder.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Home()
+        public IActionResult Index()
         {
-            return View(await _rallyService.GetAllRallies());
+            return View();
         }
     }
 }

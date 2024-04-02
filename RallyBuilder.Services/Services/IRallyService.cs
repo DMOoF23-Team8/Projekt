@@ -9,6 +9,6 @@ namespace RallyBuilder.Services
 {
     public interface IRallyService
     {
-        Task<List<Rally>> GetAllRallies();
+        Task<List<Rally>> GetRallies();
     }
 }

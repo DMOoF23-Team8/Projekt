@@ -20,6 +20,14 @@ namespace RallyBuilder
                         assembly => assembly.MigrationsAssembly("RallyBuilder.DataAccess"))
                     );
                 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDatabaseContext>().AddDefaultTokenProviders();
+                builder.Services.ConfigureApplicationCookie(options =>
+                {
+                    options.LoginPath = $"/Identity/Account/Login";
+                    options.LogoutPath = $"/Identity/Account/Logout";
+                    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+
+                }
+);
                 builder.Services.AddRazorPages();
                 builder.Services.AddScoped<IRallyService, RallyService>();
                 builder.Services.AddScoped<IEmailSender, EmailSender>();
@@ -44,7 +52,7 @@ namespace RallyBuilder
                 app.MapRazorPages();
                 app.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Home}");
+                    pattern: "{controller=Home}/{action=Index}");
                 app.Run();
             }
         }

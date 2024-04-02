@@ -19,7 +19,7 @@ namespace RallyBuilder.Services
             _dbFactory = dbFactory;
         }
 
-        public async Task<List<Rally>> GetAllRallies()
+        public async Task<List<Rally>> GetRallies()
         {
             ApplicationDatabaseContext context = _dbFactory.CreateDbContext();
             List<Rally> rallies = await context.Rallies.ToListAsync();

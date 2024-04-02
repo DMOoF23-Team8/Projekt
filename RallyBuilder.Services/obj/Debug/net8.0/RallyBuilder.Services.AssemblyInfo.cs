@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RallyBuilder.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a7165cd43ceac0332eb03f60e26964bc44f598b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad225b76c1ac13bfcec44dbbc2861337c5b00b47")]
 [assembly: System.Reflection.AssemblyProductAttribute("RallyBuilder.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RallyBuilder.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
