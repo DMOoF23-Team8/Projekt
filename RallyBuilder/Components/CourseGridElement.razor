@@ -1,0 +1,57 @@
+<div class="coursegridelement @dropclass"
+     ondragover="event.preventDefault();" 
+     ondragstart="event.dataTransfer.setData('', event.target.id);"
+     @ondrop="HandleDrop"
+     @ondragenter="HandleDragEnter"
+     @ondragleave="HandleDragLeave">
+     
+    <Sign SignModel="SignModel" HandleDragStartDelegate="(signModel) => HandleDragStart(signModel)"/>
+</div>
+
+@code {
+    [Inject] public ICourseBuilderService CourseBuilderService {get; set;}
+    [Parameter] public int GridElementId {get; set;}
+    private CourseModel CourseModel {get; set;}
+    [Parameter] public SignModel? SignModel {get; set;}
+    [Parameter] public EventCallback OnNotifyParent {get; set;}
+    private async Task NotifyParent()
+    {
+        if(OnNotifyParent.HasDelegate)
+        {
+            await OnNotifyParent.InvokeAsync(null);
+        }
+    }
+    protected override void OnInitialized()
+    {
+        CourseModel = CourseBuilderService.CourseModel;
+    }
+    private string dropclass;
+    private async Task HandleDrop() 
+    {
+        CourseBuilderService.CourseModel.CourseSignEntries.Add(
+        new CourseSignEntry()
+            {
+                SignModel = CourseBuilderService.Payload,
+                SquareNumber = GridElementId,
+                SignNumberOnCourse = CourseBuilderService.CourseModel.CourseSignEntries.ToList().Count
+            });
+        SignModel = CourseBuilderService.Payload;
+        NotifyParent();
+    }
+    private void HandleDragEnter() 
+    {
+        dropclass = "dropclass";    
+    }
+    private void HandleDragLeave()
+    {
+        dropclass = "";
+    }
+    private void HandleDragStart(SignModel signModel)
+    {
+        CourseBuilderService.Payload = SignModel;
+        CourseBuilderService.CourseModel.CourseSignEntries.RemoveAll(cse => cse.SquareNumber == GridElementId);
+        SignModel = null;
+        NotifyParent();
+
+    }
+}

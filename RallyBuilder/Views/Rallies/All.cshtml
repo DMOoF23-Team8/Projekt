@@ -1,0 +1,32 @@
+﻿@model List<Rally>
+
+<head>
+    <meta charset="UTF-8" />
+</head>
+
+<div class="container p-3">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Rally Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (Rally rally in Model)
+                {
+                    <tr>
+                        <td>@rally.RallyName</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="1">No rallies found</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

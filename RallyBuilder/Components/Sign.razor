@@ -1,0 +1,16 @@
+<img class="@(SignModel?.Level?.ToString().ToLower() ?? "")"
+     height="53.5px"
+     src="@IconPath"
+     draggable="true"
+     @ondragstart="() => HandleDragStartDelegate?.Invoke(SignModel)"
+     />
+
+@code {
+    [Inject] public ICourseBuilderService CourseBuilderService {get; set;}
+    [Parameter] public SignModel? SignModel {get; set;}
+    [Parameter] public Action<SignModel> HandleDragStartDelegate {get; set;}
+    public string IconPath
+    {
+        get {return SignModel != null ? SignModel.IconPath : "";}
+    }
+}

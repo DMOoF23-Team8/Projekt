@@ -1,0 +1,60 @@
+<div class="cbcontainer">
+    <div class="course">
+        @for (int i = 0; i < 300; i++)
+        {
+            <CourseGridElement GridElementId="@i" SignModel="@GetSignModel(i)" OnNotifyParent="HandleNotificationFromChild" />
+        }
+    </div>
+
+    <table>
+        <tbody>
+            <tr>
+                <td class="header"><b>Skilt nr.</b></td>
+                @for (int i = 1; i < 21; i++)
+                {
+                    <td>@i</td>
+                }
+            </tr>
+            <tr>     
+                <td class="header"><b>Øvelse nr.</b></td>
+                @for (int i = 1; i < 21; i++)
+                {
+                    @if (CourseBuilderService.CourseModel.CourseSignEntries.Count >= i)
+                    {
+                        <td>
+                            @CourseBuilderService.CourseModel.CourseSignEntries[i - 1]?.SignModel.Number
+                        </td>
+                    }
+                }
+            </tr>
+        </tbody>
+    </table>
+
+    <button @onclick="Save">Save</button>
+
+</div>
+
+@code {
+    [Inject] public ICourseBuilderService CourseBuilderService { get; set; }
+    [Inject] ApplicationDatabaseContext context { get; set; }
+    public CourseModel CourseModel { get; set; }
+    protected override void OnInitialized()
+    {
+        CourseModel = CourseBuilderService.CourseModel;
+    }
+    private SignModel GetSignModel(int i)
+    {
+        return CourseModel.CourseSignEntries?.FirstOrDefault(c => c.SquareNumber == i)?.SignModel;
+    }
+    private void Save()
+    {
+        CourseModel.CourseModelId = 0;
+        context.CourseModels.Add(CourseModel);
+        context.SaveChanges();
+        CourseBuilderService.CourseModel = new CourseModel { Author = "kil jaeden" };
+    }
+    private void HandleNotificationFromChild()
+    {
+        StateHasChanged();
+    }
+}

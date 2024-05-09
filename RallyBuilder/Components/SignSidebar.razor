@@ -1,0 +1,61 @@
+@rendermode RenderMode.InteractiveServer
+
+<div class="sidebarcontainer">
+    <div class="buttoncontainer">
+        <button @onclick="HandleClickAlle" class="button @(activeButton == "Alle" ? "activebutton" : "")">Alle</button>
+        <button @onclick="HandleClickBeg" class="button @(activeButton == "Beg" ? "activebutton" : "")">Beg</button>
+        <button @onclick="HandleClickOev" class="button @(activeButton == "Oev" ? "activebutton" : "")">Øv</button>
+        <button @onclick="HandleClickEks" class="button @(activeButton == "Eks" ? "activebutton" : "")">Eks</button>
+        <button @onclick="HandleClickCh" class="button @(activeButton == "Ch" ? "activebutton" : "")">Ch</button>
+        <button @onclick="HandleClickMisc" class="button @(activeButton == "Misc" ? "activebutton" : "")">Misc</button>
+    </div>
+    <div class="signscontainer">
+        @foreach (SignModel s in SelectedSigns)
+        {
+            <span class="sign"><Sign SignModel="s" HandleDragStartDelegate="signModel => CourseBuilderService.Payload = signModel" /></span>
+        }
+    </div>
+</div>
+
+
+@code {
+    private List<SignModel> SelectedSigns {get; set;}
+    [Inject] public ICourseBuilderService CourseBuilderService {get; set;}
+    [Inject] public ApplicationDatabaseContext DatabaseContext {get; set;}
+    private string activeButton = "Alle";
+    protected override void OnInitialized()
+    {
+        SelectedSigns = DatabaseContext.SignModels.ToList();
+    }
+    void HandleClickAlle()
+    {
+        SelectedSigns = DatabaseContext.SignModels.ToList();
+        activeButton = "Alle";
+    }
+    void HandleClickBeg()
+    {
+        SelectedSigns = DatabaseContext.SignModels.ToList().Where(s => s.Level == Level.Begynder).ToList();
+        activeButton = "Beg";
+    }
+    void HandleClickOev()
+    {
+        SelectedSigns = DatabaseContext.SignModels.ToList().Where(s => s.Level == Level.Oevet).ToList();
+        activeButton = "Oev";
+    }
+    void HandleClickEks()
+    {
+        SelectedSigns = DatabaseContext.SignModels.ToList().Where(s => s.Level == Level.Ekspert).ToList();
+        activeButton = "Eks";
+    }
+    void HandleClickCh()
+    {
+        SelectedSigns = DatabaseContext.SignModels.ToList().Where(s => s.Level == Level.Champion).ToList();
+        activeButton = "Ch";
+    }
+    void HandleClickMisc()
+    {
+        SelectedSigns = new List<SignModel>();
+        activeButton = "Misc";
+    }
+
+}
