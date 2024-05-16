@@ -1,4 +1,4 @@
-<img class="@(SignModel?.Level?.ToString().ToLower() ?? "") sign"
+<img class="@(SignModel?.Level?.ToString().ToLower() ?? "") @(SignModel?.Level?.ToString() != "NA" ? "sign" : "")"
      src="@IconPath"
      draggable="true"
      @ondragstart="() => HandleDragStartDelegate?.Invoke(SignModel)"

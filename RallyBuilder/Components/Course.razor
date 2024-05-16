@@ -108,7 +108,7 @@
     </table>
 
 
-    <button @onclick="Save" disabled="@(CourseState.CourseModelIsValid)">Save</button>
+    <button @onclick="Save" disabled="@(!CourseState.CourseModelIsValid())">Save</button>
 
 </div>
 

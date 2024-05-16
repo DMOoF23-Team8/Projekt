@@ -117,6 +117,10 @@ td {
   height: 52px;
   margin: 2px;
 }
+. {
+  height: 20px;
+  border: solid 2px pink;
+}
 
 .begynder {
   border: solid 2px #ffc000;
