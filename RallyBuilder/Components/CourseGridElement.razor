@@ -9,7 +9,7 @@
 </div>
 
 @code {
-    [Inject] public ICourseBuilderService CourseBuilderService {get; set;}
+    [Inject] public ICourseState CourseState {get; set;}
     [Parameter] public int GridElementId {get; set;}
     private CourseModel CourseModel {get; set;}
     [Parameter] public SignModel? SignModel {get; set;}
@@ -23,19 +23,19 @@
     }
     protected override void OnInitialized()
     {
-        CourseModel = CourseBuilderService.CourseModel;
+        CourseModel = CourseState.CourseModel;
     }
     private string dropclass;
     private async Task HandleDrop() 
     {
-        CourseBuilderService.CourseModel.CourseSignEntries.Add(
+        CourseState.CourseModel.CourseSignEntries.Add(
         new CourseSignEntry()
             {
-                SignModel = CourseBuilderService.Payload,
+                SignModel = CourseState.Payload,
                 SquareNumber = GridElementId,
-                SignNumberOnCourse = CourseBuilderService.CourseModel.CourseSignEntries.ToList().Count
+                SignNumberOnCourse = CourseState.CourseModel.CourseSignEntries.ToList().Count
             });
-        SignModel = CourseBuilderService.Payload;
+        SignModel = CourseState.Payload;
         NotifyParent();
     }
     private void HandleDragEnter() 
@@ -48,8 +48,8 @@
     }
     private void HandleDragStart(SignModel signModel)
     {
-        CourseBuilderService.Payload = SignModel;
-        CourseBuilderService.CourseModel.CourseSignEntries.RemoveAll(cse => cse.SquareNumber == GridElementId);
+        CourseState.Payload = SignModel;
+        CourseState.CourseModel.CourseSignEntries.RemoveAll(cse => cse.SquareNumber == GridElementId);
         SignModel = null;
         NotifyParent();
 

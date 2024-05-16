@@ -6,6 +6,76 @@
         }
     </div>
 
+    
+    <div>
+        <select @bind="CourseState.CourseModel.Level">
+            @for (int i = 1; i < 5; i++)
+            {
+                var lvl = (Level)i;
+
+                <option value="@lvl">@lvl.ToString()</option>
+            }
+        </select>
+        <div>
+            <b>Begrænsninger:</b>
+            @switch (CourseState.CourseModel.Level)
+            {
+                case Level.Begynder : <p> 10-15 øvelser
+                                      </p> break;
+
+                case Level.Oevet    : <p> 12-17 øvelser/ 
+                                        Min 5 øvet skilte
+                                      </p> break;
+
+                case Level.Ekspert : <p> 16-20 øvelser/ 
+                                        Min 5 øvet skilte/
+                                        Max 3 ekspert skilte
+                                    </p> break;
+
+                case Level.Champion : <p> 18-20 øvelser/ 
+                                          Min 4 øvet skilte/
+                                          Min 1 ekspert skilt/
+                                          Min 5 Champion skilte
+                                    </p> break;
+            }
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    @for (int i = 1; i < 5; i++)
+                    {
+                        var lvl = (Level)i;
+
+                        <td><b>@lvl.ToString()</b></td>
+                    }       
+                    <td> <b>Alle</b> </td>
+                </tr>
+                <tr>
+                    @for (int i = 1; i < 5; i++)
+                    {
+                        var lvl = (Level)i;
+
+                        <td>
+                            @CourseState.CourseModel.CourseSignEntries.Count(cse => cse.SignModel.Level == lvl) 
+                        </td>
+                    }
+                    <td> 
+                        @CourseState.CourseModel.CourseSignEntries.Count(cse => cse.SignModel.Level != Level.NA)
+                        @* @switch(CourseState.CourseModel.Level)
+                            {
+                                case Level.Begynder : <p>/10-15 </p> break;
+                                case Level.Oevet : <p>/12-17 </p> break;
+                                case Level.Ekspert : <p>/16-20 </p> break;
+                                case Level.Champion : <p>/18-20 </p> break;
+                            } *@
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+    </div>
     <table>
         <tbody>
             <tr>
@@ -17,30 +87,39 @@
             </tr>
             <tr>     
                 <td class="header"><b>Øvelse nr.</b></td>
-                @for (int i = 1; i < 21; i++)
+                @foreach(var cse in CourseState.CourseModel.CourseSignEntries)
                 {
-                    @if (CourseBuilderService.CourseModel.CourseSignEntries.Count >= i)
+                    @if (cse.SignModel.Level != Level.NA)
                     {
-                        <td>
-                            @CourseBuilderService.CourseModel.CourseSignEntries[i - 1]?.SignModel.Number
-                        </td>
+                        <td> @cse.SignModel.Number </td>
                     }
                 }
+                @* @for (int i = 1; i < 21; i++)
+                {
+                    @if (CourseState.CourseModel.CourseSignEntries.Count >= i)
+                    {
+                        <td>
+                            @CourseState.CourseModel.CourseSignEntries[i - 1]?.SignModel.Number
+                        </td>
+                    }
+                } *@
             </tr>
         </tbody>
     </table>
 
-    <button @onclick="Save">Save</button>
+
+    <button @onclick="Save" disabled="@(CourseState.CourseModelIsValid)">Save</button>
 
 </div>
 
 @code {
-    [Inject] public ICourseBuilderService CourseBuilderService { get; set; }
+    [Inject] public ICourseState CourseState { get; set; }
     [Inject] ApplicationDatabaseContext context { get; set; }
     public CourseModel CourseModel { get; set; }
+    
     protected override void OnInitialized()
     {
-        CourseModel = CourseBuilderService.CourseModel;
+        CourseModel = CourseState.CourseModel;
     }
     private SignModel GetSignModel(int i)
     {
@@ -51,7 +130,7 @@
         CourseModel.CourseModelId = 0;
         context.CourseModels.Add(CourseModel);
         context.SaveChanges();
-        CourseBuilderService.CourseModel = new CourseModel { Author = "kil jaeden" };
+        CourseState.CourseModel = new CourseModel { Author = "kil jaeden" };
     }
     private void HandleNotificationFromChild()
     {

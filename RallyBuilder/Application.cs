@@ -41,7 +41,7 @@ public class Application
             webApplicationBuilder.Services.AddScoped<AdminServiceVM>();
             webApplicationBuilder.Services.AddScoped<IAdminService, AdminService>();
             webApplicationBuilder.Services.AddScoped<IRallyService, RallyService>();
-            webApplicationBuilder.Services.AddScoped<ICourseBuilderService, CourseBuilderService>();
+            webApplicationBuilder.Services.AddScoped<ICourseState, CourseState>();
 
         }
 

@@ -62,8 +62,12 @@ body {
 }
 
 .sign {
-  margin: 2px;
-  float: left;
+  
+}
+
+.sign img {
+  width: 23%;
+  height: auto;
 }
 
 .signscontainer {
@@ -76,7 +80,7 @@ body {
 .course {
   width: 100%;
   height: 500px;
-  background-image: url('Images/Skilte/BbBg.png');
+  background-image: url('../Images/Skilte/Bbbg.jpg');
   background-size: cover;
   background-position: center;
   float: right;
@@ -109,6 +113,11 @@ td {
 }
 
 /* Sign CSS */
+.sign {
+  height: 52px;
+  margin: 2px;
+}
+
 .begynder {
   border: solid 2px #ffc000;
 }

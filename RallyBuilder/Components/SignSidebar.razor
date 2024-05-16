@@ -12,15 +12,14 @@
     <div class="signscontainer">
         @foreach (SignModel s in SelectedSigns)
         {
-            <span class="sign"><Sign SignModel="s" HandleDragStartDelegate="signModel => CourseBuilderService.Payload = signModel" /></span>
+            <Sign SignModel="s" HandleDragStartDelegate="signModel => CourseState.Payload = signModel" />
         }
     </div>
 </div>
 
-
 @code {
     private List<SignModel> SelectedSigns {get; set;}
-    [Inject] public ICourseBuilderService CourseBuilderService {get; set;}
+    [Inject] public ICourseState CourseState {get; set;}
     [Inject] public ApplicationDatabaseContext DatabaseContext {get; set;}
     private string activeButton = "Alle";
     protected override void OnInitialized()
@@ -54,7 +53,7 @@
     }
     void HandleClickMisc()
     {
-        SelectedSigns = new List<SignModel>();
+        SelectedSigns = DatabaseContext.SignModels.ToList().Where(s => s.Level == Level.NA).ToList();
         activeButton = "Misc";
     }
 
