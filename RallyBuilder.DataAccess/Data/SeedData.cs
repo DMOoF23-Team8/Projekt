@@ -11,34 +11,52 @@ public static class SeedData
     {
         var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
         var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDatabaseContext>();
-        // ApplicationDatabaseContext context = app.Services
-        // .CreateScope().ServiceProvider
-        // .GetRequiredService<ApplicationDatabaseContext>();
 
         //Add all signs
         if (!context.SignModels.Any())
         {
+            context.SignModels.Add(new SignModel {Number = 1234, Name = "Start", Level = Level.NA, IconPath = "Images/Misc/start.jpg"});
+            context.SignModels.Add(new SignModel {Number = 4321, Name = "Maal", Level = Level.NA, IconPath = "Images/Misc/maal.jpg"});
+            
             var levels = new List<(Level level, int start, int end)>
-        {
-            (Level.Begynder, 1, 47),
-            (Level.Oevet, 100, 133),
-            (Level.Ekspert, 200, 229),
-            (Level.Champion, 300, 319)
-        };
+            {
+                (Level.Begynder, 3, 47),
+                (Level.Oevet, 100, 133),
+                (Level.Ekspert, 200, 229),
+                (Level.Champion, 300, 319),
+                (Level.NA, 1, 27),
+            };
 
             foreach (var (level, start, end) in levels)
             {
-                for (int i = start; i <= end; i++)
+                if (level == Level.NA)
                 {
-                    context.SignModels.Add(new SignModel
+                    for (int i = start; i <= end; i++)
                     {
-                        Number = i,
-                        Name = $"{i}",
-                        Level = level,
-                        IconPath = $"images/Skilte/{i}.jpg"
-                    });
+                        context.SignModels.Add(new SignModel
+                        {
+                            Number = 400 + i,
+                            Name = "derp",
+                            Level = level,
+                            IconPath = $"Images/Misc/{i}.png"
+                        });
+                    }
+                }
+                else
+                {
+                    for (int i = start; i <= end; i++)
+                    {
+                        context.SignModels.Add(new SignModel
+                        {
+                            Number = i,
+                            Name = $"{i}",
+                            Level = level,
+                            IconPath = $"images/Skilte/{i}.jpg"
+                        });
+                    }
                 }
             }
+            
             context.SaveChanges();
         }
         if(!context.CourseModels.Any())
