@@ -2,12 +2,12 @@
 
 <div class="sidebarcontainer">
     <div class="buttoncontainer">
-        <button @onclick="HandleClickAlle" class="button @(activeButton == "Alle" ? "activebutton" : "")">Alle</button>
-        <button @onclick="HandleClickBeg" class="button @(activeButton == "Beg" ? "activebutton" : "")">Beg</button>
-        <button @onclick="HandleClickOev" class="button @(activeButton == "Oev" ? "activebutton" : "")">Øv</button>
-        <button @onclick="HandleClickEks" class="button @(activeButton == "Eks" ? "activebutton" : "")">Eks</button>
-        <button @onclick="HandleClickCh" class="button @(activeButton == "Ch" ? "activebutton" : "")">Ch</button>
-        <button @onclick="HandleClickMisc" class="button @(activeButton == "Misc" ? "activebutton" : "")">Misc</button>
+        <button @onclick="HandleClickAlle" class="thebutton @(activeButton == "Alle" ? "activebutton" : "")">Alle</button>
+        <button @onclick="HandleClickBeg" class="thebutton @(activeButton == "Beg" ? "activebutton" : "")">Beg</button>
+        <button @onclick="HandleClickOev" class="thebutton @(activeButton == "Oev" ? "activebutton" : "")">Øv</button>
+        <button @onclick="HandleClickEks" class="thebutton @(activeButton == "Eks" ? "activebutton" : "")">Eks</button>
+        <button @onclick="HandleClickCh" class="thebutton @(activeButton == "Ch" ? "activebutton" : "")">Ch</button>
+        <button @onclick="HandleClickMisc" class="thebutton @(activeButton == "Misc" ? "activebutton" : "")">Misc</button>
     </div>
     <div class="signscontainer">
         @foreach (SignModel s in SelectedSigns)

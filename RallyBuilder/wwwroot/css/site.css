@@ -39,7 +39,7 @@ body {
   border-bottom: solid 2px black;
 }
 
-.button {
+.thebutton {
   width: 16.667%;
   height: 35px;
   background-color: beige;
@@ -51,9 +51,10 @@ body {
   width: 31%;
   height: 600px;
   float: left;
+  margin-top: 10px;
 }
 
-.button:hover {
+.thebutton:hover {
   background-color: rgb(203, 203, 185);
 }
 
@@ -74,6 +75,7 @@ body {
   height: 550px;
   overflow: auto; 
   margin: 5px;
+  float: left;
 }
 
 /* Course CSS */
@@ -90,9 +92,10 @@ body {
 }
 
 .cbcontainer {
-  width: 69%;
+  width: 68%;
   float: right;
-  padding: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 table {
@@ -115,11 +118,9 @@ td {
 /* Sign CSS */
 .sign {
   height: 52px;
-  margin: 2px;
 }
-. {
-  height: 20px;
-  border: solid 2px pink;
+.allsigns {
+  margin: 2px;
 }
 
 .begynder {
@@ -157,4 +158,10 @@ td {
 .dropclass {
   border: 2px solid grey;
   background-clip: padding-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }

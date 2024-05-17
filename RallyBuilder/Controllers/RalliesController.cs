@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RallyBuilder.Services;
+using RallyBuilder.DataAccess;
+using RallyBuilder.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace RallyBuilder.Controllers
 {
@@ -8,9 +11,11 @@ namespace RallyBuilder.Controllers
     public class RalliesController : Controller
     {
         private readonly IRallyService _rallyService;
-        public RalliesController(IRallyService rallyService)
+        private readonly ApplicationDatabaseContext _dbContext;
+        public RalliesController(IRallyService rallyService, ApplicationDatabaseContext dbContext)
         {
             _rallyService = rallyService;
+            _dbContext = dbContext;
         }
 
         public async Task<IActionResult> Homepage()
@@ -40,7 +45,12 @@ namespace RallyBuilder.Controllers
 
         public IActionResult CourseBuilder()
         {
-            return View();
+            CourseModel? courseModel = _dbContext.CourseModels
+                .Include(cm => cm.CourseSignEntries)
+                .ThenInclude(cse => cse.SignModel)
+                .FirstOrDefault(cm => cm.CourseModelId == 10);
+
+            return View(courseModel);
         }
 
     }

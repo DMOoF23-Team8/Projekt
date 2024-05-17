@@ -29,7 +29,7 @@
 
                 case Level.Ekspert : <p> 16-20 øvelser/ 
                                         Min 5 øvet skilte/
-                                        Max 3 ekspert skilte
+                                        Min 3 ekspert skilte
                                     </p> break;
 
                 case Level.Champion : <p> 18-20 øvelser/ 
@@ -51,26 +51,30 @@
                     }       
                     <td> <b>Alle</b> </td>
                 </tr>
-                <tr>
-                    @for (int i = 1; i < 5; i++)
-                    {
-                        var lvl = (Level)i;
+                @if (CourseState.CourseModel.CourseSignEntries != null)
+                {
 
+                    <tr>
+                        @for (int i = 1; i < 5; i++)
+                        {
+                            var lvl = (Level)i;
+
+                            <td>
+                                @CourseState.CourseModel.CourseSignEntries.Count(cse => cse.SignModel.Level == lvl)
+                            </td>
+                        }
                         <td>
-                            @CourseState.CourseModel.CourseSignEntries.Count(cse => cse.SignModel.Level == lvl) 
+                            @CourseState.CourseModel.CourseSignEntries.Count(cse => cse.SignModel.Level != Level.NA)
+                            @* @switch(CourseState.CourseModel.Level)
+                        {
+                        case Level.Begynder : <p>/10-15 </p> break;
+                        case Level.Oevet : <p>/12-17 </p> break;
+                        case Level.Ekspert : <p>/16-20 </p> break;
+                        case Level.Champion : <p>/18-20 </p> break;
+                        } *@
                         </td>
-                    }
-                    <td> 
-                        @CourseState.CourseModel.CourseSignEntries.Count(cse => cse.SignModel.Level != Level.NA)
-                        @* @switch(CourseState.CourseModel.Level)
-                            {
-                                case Level.Begynder : <p>/10-15 </p> break;
-                                case Level.Oevet : <p>/12-17 </p> break;
-                                case Level.Ekspert : <p>/16-20 </p> break;
-                                case Level.Champion : <p>/18-20 </p> break;
-                            } *@
-                    </td>
-                </tr>
+                    </tr>
+                }
             </tbody>
         </table>
 

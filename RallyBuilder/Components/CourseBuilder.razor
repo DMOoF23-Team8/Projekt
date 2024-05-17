@@ -1,2 +1,14 @@
 <SignSidebar />
 <Course />
+
+@code {
+    [Inject] ICourseState CourseState {get; set;}
+    [Parameter] public CourseModel? CourseModelToLoad {get; set;}
+    protected override void OnInitialized()
+    {
+        if(CourseModelToLoad != null)
+        {
+            CourseState.CourseModel = CourseModelToLoad;
+        }
+    } 
+}
