@@ -77,6 +77,15 @@ body {
   margin: 5px;
   float: left;
 }
+/* CourseBuilder css */
+.coursebuilder {
+  margin-bottom: 50px;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /* Course CSS */
 .course {

@@ -112,7 +112,7 @@
     </table>
 
 
-    <button @onclick="Save" disabled="@(!CourseState.CourseModelIsValid())">Save</button>
+    <button @onclick="Update" disabled="@(!CourseState.CourseModelIsValid())">Save</button>
 
 </div>
 
@@ -129,15 +129,21 @@
     {
         return CourseModel.CourseSignEntries?.FirstOrDefault(c => c.SquareNumber == i)?.SignModel;
     }
-    private void Save()
+    private void Update()
     {
-        CourseModel.CourseModelId = 0;
-        context.CourseModels.Add(CourseModel);
         context.SaveChanges();
-        CourseState.CourseModel = new CourseModel { Author = "kil jaeden" };
+        @* var courseSignEntriesToDelete = context.CourseSignEntries
+            .Where(cse => cse.CourseModelId == null);
+        context.CourseSignEntries.RemoveRange(courseSignEntriesToDelete);
+        context.SaveChanges(); *@
     }
     private void HandleNotificationFromChild()
     {
         StateHasChanged();
     }
 }
+
+         @* CourseModel.CourseModelId = 0;
+        context.CourseModels.Add(CourseModel);
+        context.SaveChanges();
+        CourseState.CourseModel = new CourseModel { Author = "kil jaeden" }; *@

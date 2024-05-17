@@ -45,12 +45,7 @@ namespace RallyBuilder.Controllers
 
         public IActionResult CourseBuilder()
         {
-            CourseModel? courseModel = _dbContext.CourseModels
-                .Include(cm => cm.CourseSignEntries)
-                .ThenInclude(cse => cse.SignModel)
-                .FirstOrDefault(cm => cm.CourseModelId == 10);
-
-            return View(courseModel);
+            return View(10);
         }
 
     }
