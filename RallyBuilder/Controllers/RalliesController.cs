@@ -32,10 +32,4 @@ public class RalliesController : Controller
     {
         return View();
     }
-
-    [HttpGet]
-    public IActionResult CourseBuilder(CourseModel courseModel)
-    {
-        return View();
-    }
 }

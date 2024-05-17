@@ -18,58 +18,57 @@ namespace RallyBuilder.DataAccess.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.4")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = "2b1dc6d9-01e3-4e2f-8e37-bd5f59949f6d",
+                            Id = "4297dc45-9415-4a96-81ae-ca476e1ab04e",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "fd2c0fbf-063b-4f11-9a33-60f993ebb223",
+                            Id = "73e2dc24-d9b0-43e3-923a-673e06f56218",
                             Name = "Dommer",
                             NormalizedName = "DOMMER"
                         },
                         new
                         {
-                            Id = "774150f1-64f3-41e3-b634-9ed412dd0e22",
+                            Id = "9fb7ad05-271f-445f-bbf9-43a7855b8086",
                             Name = "Instruktør",
                             NormalizedName = "INSTRUKTØR"
                         },
                         new
                         {
-                            Id = "e6ce3858-625a-4ff8-8061-d9d22e67e4c0",
+                            Id = "8cc8938b-ce7b-4092-83bc-88649bbaaec3",
                             Name = "Hundefører",
                             NormalizedName = "HUNDEFØRER"
                         });
@@ -81,17 +80,17 @@ namespace RallyBuilder.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
@@ -103,59 +102,59 @@ namespace RallyBuilder.DataAccess.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasMaxLength(21)
-                        .HasColumnType("nvarchar(21)");
+                        .HasColumnType("varchar(21)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
@@ -164,8 +163,7 @@ namespace RallyBuilder.DataAccess.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
 
@@ -180,17 +178,17 @@ namespace RallyBuilder.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
@@ -202,17 +200,17 @@ namespace RallyBuilder.DataAccess.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -224,10 +222,10 @@ namespace RallyBuilder.DataAccess.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -238,39 +236,39 @@ namespace RallyBuilder.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "6253e240-f04d-4dc0-81c8-9726e145221c",
-                            RoleId = "2b1dc6d9-01e3-4e2f-8e37-bd5f59949f6d"
+                            UserId = "8f8be20c-d345-4561-8cc6-e55df62478aa",
+                            RoleId = "4297dc45-9415-4a96-81ae-ca476e1ab04e"
                         },
                         new
                         {
-                            UserId = "e57fc725-7672-4e47-bfbf-58f9cbf8ca69",
-                            RoleId = "fd2c0fbf-063b-4f11-9a33-60f993ebb223"
+                            UserId = "0b3da8c6-91dc-4e5a-a07e-f5c549f8f3c5",
+                            RoleId = "73e2dc24-d9b0-43e3-923a-673e06f56218"
                         },
                         new
                         {
-                            UserId = "a7174963-6b35-4c04-8133-a45abf4914d8",
-                            RoleId = "774150f1-64f3-41e3-b634-9ed412dd0e22"
+                            UserId = "3c0ef874-90ee-4a2c-880f-a7bc6a3414f4",
+                            RoleId = "9fb7ad05-271f-445f-bbf9-43a7855b8086"
                         },
                         new
                         {
-                            UserId = "96b6c59d-64f3-4513-bd3f-6f4b905a52a6",
-                            RoleId = "e6ce3858-625a-4ff8-8061-d9d22e67e4c0"
+                            UserId = "21a297dd-a832-4895-866a-5726f2699094",
+                            RoleId = "8cc8938b-ce7b-4092-83bc-88649bbaaec3"
                         });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
@@ -283,11 +281,11 @@ namespace RallyBuilder.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseModelId"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("CourseModelId"));
 
                     b.Property<string>("Author")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
@@ -303,7 +301,7 @@ namespace RallyBuilder.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseSignEntryId"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("CourseSignEntryId"));
 
                     b.Property<int>("CourseModelId")
                         .HasColumnType("int");
@@ -332,18 +330,18 @@ namespace RallyBuilder.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SignModelId"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("SignModelId"));
 
                     b.Property<string>("IconPath")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("Level")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
@@ -358,78 +356,78 @@ namespace RallyBuilder.DataAccess.Migrations
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
                     b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
 
                     b.HasData(
                         new
                         {
-                            Id = "6253e240-f04d-4dc0-81c8-9726e145221c",
+                            Id = "8f8be20c-d345-4561-8cc6-e55df62478aa",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "318708c9-154e-48a8-9d4b-e3aa3cba9bd6",
+                            ConcurrencyStamp = "cce7fb20-9bf1-4904-ac8b-dde9f462518c",
                             Email = "administrator@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMINISTRATOR@TEST.COM",
                             NormalizedUserName = "ADMINISTRATOR@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAOjvuHHp6r0ksl9t3/MeY5VCi0prJ5YBdsU9jl2LhQmHWKdtc8lTNCQye1gENqnGA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEHAtwDDGn2lOb9Eqya1aexvkY2Ci9prcY7RBuAV44+D7lFdlfQTMMWBHFDkyRKRYw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6f46c078-30a9-4f2a-936d-780560a6ba17",
+                            SecurityStamp = "5710ce12-7b4a-4feb-8e63-6ec9ba6d6b13",
                             TwoFactorEnabled = false,
                             UserName = "administrator@test.com",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "f90773b9-8145-4df2-851f-644b60eb5fc7",
+                            Id = "0b3da8c6-91dc-4e5a-a07e-f5c549f8f3c5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2f0f97e3-4822-42ac-b8b3-d9d9b19022b0",
+                            ConcurrencyStamp = "66233997-7174-4cfe-8e45-4f34d9cdc137",
                             Email = "dommer@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "DOMMER@TEST.COM",
                             NormalizedUserName = "DOMMER@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIL6EAyMNW+x8W9ldgGXbiKvWGqTZW/DlnXwE2je6RWr4/b7I/Hxe/igIa1sESlTfw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF8v4ZpGHm004rCmPl8jadr5B4RimE84gb9VjcZXxOqeEEYv/LBPbeucy7M1fQWgTQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a7876432-ecf0-49a5-8d19-135676394496",
+                            SecurityStamp = "d7424981-b4a1-4079-8ced-9d840b3c4214",
                             TwoFactorEnabled = false,
                             UserName = "dommer@test.com",
                             Name = "Dommer"
                         },
                         new
                         {
-                            Id = "02a3c053-4dc6-4792-a5a6-c9cc4f866d7b",
+                            Id = "3c0ef874-90ee-4a2c-880f-a7bc6a3414f4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f337beb3-9d0a-4269-baa0-d7b2ca2abf17",
+                            ConcurrencyStamp = "5b061724-088c-457b-963e-ebeb08a2bdce",
                             Email = "instruktør@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "INSTRUKTØR@TEST.COM",
                             NormalizedUserName = "INSTRUKTØR@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBLfAxYewXm9jZ2/1wycU0GXN7FIB4H9tiwTGreQwntNpWc691fUuJQjcQda0v/Qqg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEwj2zSRQ28IusV7Fmp8/hQIjqSYOWC64JFZVjtgtJPA9HJPX7TLsR3Bies3cZ5djA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5b330981-30d4-483f-921e-dbd3aeda9c39",
+                            SecurityStamp = "e0705719-c913-4975-8ca2-31106d07a09c",
                             TwoFactorEnabled = false,
                             UserName = "instruktør@test.com",
                             Name = "Instruktør"
                         },
                         new
                         {
-                            Id = "84e4f980-2ca8-4b62-a792-050e0dc0c60c",
+                            Id = "21a297dd-a832-4895-866a-5726f2699094",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7c19c33a-53f3-4221-8f11-c9feb6473297",
+                            ConcurrencyStamp = "022a39dd-02da-400c-b245-bb983b1b4996",
                             Email = "hundefører@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HUNDEFØRER@TEST.COM",
                             NormalizedUserName = "HUNDEFØRER@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMWZSZN82weRnc95z7IuUoUjbTWg2hjv0pPvmoLfMuP7XNVYf91gYPfIKEDqT1tBiA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGlUkdklEIHjzvizaeMrTqnXIkj6sAXjVBXdZnUDdc/7NOvvn0EzmGwTcuG4Kk2tsw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "27a2500c-a9b7-4fe5-a1fb-128c850eb48b",
+                            SecurityStamp = "59b9dbce-96cb-4348-8bd6-c0a6133af5e4",
                             TwoFactorEnabled = false,
                             UserName = "hundefører@test.com",
                             Name = "Hundefører"

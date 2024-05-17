@@ -21,8 +21,9 @@ public class Application
 
             //Data access
             webApplicationBuilder.Services.AddDbContextFactory<ApplicationDatabaseContext>(
-                options => options.UseSqlServer(
+                options => options.UseMySql(
                     webApplicationBuilder.Configuration.GetConnectionString("DefaultConnection"),
+                    new MySqlServerVersion(new Version(10, 11, 6)),
                     assembly => assembly.MigrationsAssembly("RallyBuilder.DataAccess"))
                 );
 
