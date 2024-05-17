@@ -24,7 +24,7 @@ public static class SeedData
                 (Level.Oevet, 100, 133),
                 (Level.Ekspert, 200, 229),
                 (Level.Champion, 300, 319),
-                (Level.NA, 1, 27),
+                (Level.NA, 1, 25),
             };
 
             foreach (var (level, start, end) in levels)

@@ -1,2 +1,22 @@
+<div class="coursebuilder clearfix">
 <SignSidebar />
 <Course />
+</div>
+
+@code {
+    [Inject] ICourseState CourseState {get; set;}
+    [Inject] ApplicationDatabaseContext dbContext {get; set;}
+    [Parameter] public int? CourseModelIdToLoad {get; set;}
+    protected override void OnInitialized()
+    {
+        if(CourseModelIdToLoad != null)
+        {
+            CourseModel? courseModel = dbContext.CourseModels
+            .Include(cm => cm.CourseSignEntries)
+            .ThenInclude(cse => cse.SignModel)
+            .FirstOrDefault(cm => cm.CourseModelId == 10);
+
+            CourseState.CourseModel = courseModel;
+        }
+    }
+}

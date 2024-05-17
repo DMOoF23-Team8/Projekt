@@ -5,4 +5,5 @@ public class CourseSignEntry
     public SignModel SignModel {get; set;}
     public int? SignNumberOnCourse {get; set;}
     public int SquareNumber {get; set;}
+    public int CourseModelId {get; set;}
 }
