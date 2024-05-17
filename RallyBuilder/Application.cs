@@ -39,6 +39,7 @@ public class Application
 
             //Custom services
             webApplicationBuilder.Services.AddScoped<AdminServiceVM>();
+            webApplicationBuilder.Services.AddScoped<RallyServiceVM>();
             webApplicationBuilder.Services.AddScoped<IAdminService, AdminService>();
             webApplicationBuilder.Services.AddScoped<IRallyService, RallyService>();
             webApplicationBuilder.Services.AddScoped<ICourseState, CourseState>();
@@ -68,7 +69,7 @@ public class Application
             //Default route
             webApplication.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Rallies}/{action=Homepage}");
+                pattern: "{controller=Home}/{action=Home}");
 
             //Seed Database
             SeedData.EnsurePopulated(webApplication);

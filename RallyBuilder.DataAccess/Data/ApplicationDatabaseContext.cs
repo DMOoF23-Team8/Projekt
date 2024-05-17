@@ -10,7 +10,6 @@ namespace RallyBuilder.DataAccess
     public class ApplicationDatabaseContext : IdentityDbContext<IdentityUser>
     {
         //DbSets pertaining to identity functionality
-        public DbSet<Rally> Rallies { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<IdentityRole> IdentityRoles { get; set; }
         public DbSet<IdentityUserRole<string>> IdentityUserRoles { get; set; }

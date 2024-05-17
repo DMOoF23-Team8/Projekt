@@ -7,25 +7,25 @@ namespace RallyBuilder.Controllers;
 [Authorize(Roles = "Administrator")]
 public class AdminController : Controller
 {
-    public AdminServiceVM ViewModel { get; set; }
+    private readonly AdminServiceVM _vm;
     public AdminController(AdminServiceVM viewModel)
     {
-        ViewModel = viewModel;
+        _vm = viewModel;
     }
 
     [HttpGet]
     public IActionResult Users()
     {
-        return View(ViewModel);
+        return View(_vm);
     }
 
 
     [HttpPost]
     public async Task<IActionResult> DeleteApplicationUser(string userID)
     {
-        await ViewModel._adminService.DeleteApplicationuser(userID);
-        await ViewModel.RefresherAsync();
+        await _vm._adminService.DeleteApplicationuser(userID);
+        await _vm.RefresherAsync();
 
-        return View("Users", ViewModel);
+        return View("Users", _vm);
     }
 }

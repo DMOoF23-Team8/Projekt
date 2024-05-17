@@ -1,32 +1,43 @@
-﻿@model List<Rally>
+﻿@model RallyBuilder.ViewModels.RallyServiceVM;
 
 <head>
     <meta charset="UTF-8" />
 </head>
 
+
 <div class="container p-3">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Rally Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model != null && Model.Any())
-            {
-                foreach (Rally rally in Model)
+    <div class="row">
+        @switch (Model.CourseModels.Count())
+        {
+            case > 0:
+                foreach (CourseModel courseModel in Model.CourseModels)
                 {
-                    <tr>
-                        <td>@rally.RallyName</td>
-                    </tr>
+                    <div class="col-4">
+                        <div class="card">
+                            <a href="google.com" class="stretched-link"></a>
+
+                            <a href="@Url.Action("CourseBuilder", "Rallies")" class="stretched-link"></a>
+                            <img src="~/Images/poster.jpg" class="card-img-top">
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    Rally nummer: @courseModel.CourseModelId
+                                </h5>
+                                <p class="card-text">
+                                    Lavet af: @courseModel.Author <br />
+                                    @courseModel.Level
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="1">No rallies found</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+                break;
+            default:
+                <p>
+                    Ingen baner fundet
+                </p>
+                break;
+
+        }
+        <div>
+        </div>

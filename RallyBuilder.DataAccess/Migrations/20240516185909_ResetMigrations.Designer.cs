@@ -12,8 +12,8 @@ using RallyBuilder.DataAccess;
 namespace RallyBuilder.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDatabaseContext))]
-    [Migration("20240509144443_Initial")]
-    partial class Initial
+    [Migration("20240516185909_ResetMigrations")]
+    partial class ResetMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,25 +54,25 @@ namespace RallyBuilder.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2b1dc6d9-01e3-4e2f-8e37-bd5f59949f6d",
+                            Id = "56890e2b-5b33-48d5-9ff6-a64607a25089",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "fd2c0fbf-063b-4f11-9a33-60f993ebb223",
+                            Id = "3aa08b6c-36ac-4726-bf19-bcae77962c35",
                             Name = "Dommer",
                             NormalizedName = "DOMMER"
                         },
                         new
                         {
-                            Id = "774150f1-64f3-41e3-b634-9ed412dd0e22",
+                            Id = "9e6a024e-3002-4ed6-94d7-b5988fec3bfb",
                             Name = "Instruktør",
                             NormalizedName = "INSTRUKTØR"
                         },
                         new
                         {
-                            Id = "e6ce3858-625a-4ff8-8061-d9d22e67e4c0",
+                            Id = "0bf1a9c0-544e-4b04-a3e0-fc2a9c2c9eaf",
                             Name = "Hundefører",
                             NormalizedName = "HUNDEFØRER"
                         });
@@ -241,23 +241,23 @@ namespace RallyBuilder.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "6253e240-f04d-4dc0-81c8-9726e145221c",
-                            RoleId = "2b1dc6d9-01e3-4e2f-8e37-bd5f59949f6d"
+                            UserId = "03f7b721-95ac-4c20-a2d0-ed099f4e7997",
+                            RoleId = "56890e2b-5b33-48d5-9ff6-a64607a25089"
                         },
                         new
                         {
-                            UserId = "e57fc725-7672-4e47-bfbf-58f9cbf8ca69",
-                            RoleId = "fd2c0fbf-063b-4f11-9a33-60f993ebb223"
+                            UserId = "723e62ec-b654-4934-825f-49827aa47525",
+                            RoleId = "3aa08b6c-36ac-4726-bf19-bcae77962c35"
                         },
                         new
                         {
-                            UserId = "a7174963-6b35-4c04-8133-a45abf4914d8",
-                            RoleId = "774150f1-64f3-41e3-b634-9ed412dd0e22"
+                            UserId = "70bf3f06-9243-43af-afbe-3a3af69b0184",
+                            RoleId = "9e6a024e-3002-4ed6-94d7-b5988fec3bfb"
                         },
                         new
                         {
-                            UserId = "96b6c59d-64f3-4513-bd3f-6f4b905a52a6",
-                            RoleId = "e6ce3858-625a-4ff8-8061-d9d22e67e4c0"
+                            UserId = "881e6eef-7615-4edd-860a-6b2cd8855561",
+                            RoleId = "0bf1a9c0-544e-4b04-a3e0-fc2a9c2c9eaf"
                         });
                 });
 
@@ -329,23 +329,6 @@ namespace RallyBuilder.DataAccess.Migrations
                     b.ToTable("CourseSignEntries");
                 });
 
-            modelBuilder.Entity("RallyBuilder.Models.Rally", b =>
-                {
-                    b.Property<int>("RallyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RallyId"));
-
-                    b.Property<string>("RallyName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RallyId");
-
-                    b.ToTable("Rallies");
-                });
-
             modelBuilder.Entity("RallyBuilder.Models.SignModel", b =>
                 {
                     b.Property<int>("SignModelId")
@@ -388,68 +371,68 @@ namespace RallyBuilder.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6253e240-f04d-4dc0-81c8-9726e145221c",
+                            Id = "03f7b721-95ac-4c20-a2d0-ed099f4e7997",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "318708c9-154e-48a8-9d4b-e3aa3cba9bd6",
+                            ConcurrencyStamp = "d8b8d276-5748-4088-a046-357e321429ec",
                             Email = "administrator@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMINISTRATOR@TEST.COM",
                             NormalizedUserName = "ADMINISTRATOR@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEYB90eVO5WHb2d8b4cRjjb5+pBdNxGb2bIbjyC1gnN8cRuFMd+URsfA/ykmFg25aA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGsiUuSWMeRJx4zXsFgIJfS82z7wQtDgdYLboohkQEZHL5d5xp23AVAxHAv6itVf6Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f2471d6f-88ed-4379-a60a-6acabe2e19a1",
+                            SecurityStamp = "cfb1bcd1-177c-4710-af1a-370345b809df",
                             TwoFactorEnabled = false,
                             UserName = "administrator@test.com",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "e57fc725-7672-4e47-bfbf-58f9cbf8ca69",
+                            Id = "723e62ec-b654-4934-825f-49827aa47525",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8118d86f-8439-4759-8d8b-c256639aa2dd",
+                            ConcurrencyStamp = "4ab80a7b-f5b9-41bb-9dad-4034892c78a8",
                             Email = "dommer@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "DOMMER@TEST.COM",
                             NormalizedUserName = "DOMMER@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJbt2ScHUzAD/ZNIaNaTSp+xugRn8rIfBSdfsRPqcr1yf7jCKXEO35j5iewn//Rx9A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOvDs3x2FIUFgNE6SdYdo262B263FIns4E7ydVt4UvCQ/8cvSJexr2KNoA9cN/KvCQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "355c8428-64a5-4dec-8633-1565dd380fec",
+                            SecurityStamp = "19a2fa0c-a879-4d99-b1a3-dbb0c61e0027",
                             TwoFactorEnabled = false,
                             UserName = "dommer@test.com",
                             Name = "Dommer"
                         },
                         new
                         {
-                            Id = "a7174963-6b35-4c04-8133-a45abf4914d8",
+                            Id = "70bf3f06-9243-43af-afbe-3a3af69b0184",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "778a5e51-85f9-4f67-a219-641bdfeea9ae",
+                            ConcurrencyStamp = "03383a40-f4db-4699-8269-14a6868b8fcc",
                             Email = "instruktør@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "INSTRUKTØR@TEST.COM",
                             NormalizedUserName = "INSTRUKTØR@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJL2QCTEaVzUj3Ku2JLssgE0IJzsEuXtY9qlGSMd6/31InfuBF7PJgGLK0p1pWYskQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPBMlS1FhyA5aeuLgO4QO71RqbQF91xPFutkxtq7iXk8Le/iyezVKZCl0ZaXbdkt2w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "62d3a90f-06df-442b-b00e-3a3ba3e58f5f",
+                            SecurityStamp = "56baf073-b425-4957-9a04-fca395915340",
                             TwoFactorEnabled = false,
                             UserName = "instruktør@test.com",
                             Name = "Instruktør"
                         },
                         new
                         {
-                            Id = "96b6c59d-64f3-4513-bd3f-6f4b905a52a6",
+                            Id = "881e6eef-7615-4edd-860a-6b2cd8855561",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "11ca109a-7f3e-4d06-8a51-0bad7a7f6f8b",
+                            ConcurrencyStamp = "18fc8397-caf5-4821-a246-af73cc268954",
                             Email = "hundefører@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HUNDEFØRER@TEST.COM",
                             NormalizedUserName = "HUNDEFØRER@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGfsujG6H+ca1MVglH/pfNZLFg2KzDLXAPN/FpWsbLOwgq8/uwE4Dwd2j4Mb12rKGQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFkOQs2PWF5Ur6V7MSnURAf9my/exBeCHZvj0FVnPAbVe/eMA3e7obUE3DMJl1k9Vg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b6223e3a-4bd7-46c1-b563-62875835afa4",
+                            SecurityStamp = "e7605ef5-4a70-480d-b7bd-d2a50ef3ed31",
                             TwoFactorEnabled = false,
                             UserName = "hundefører@test.com",
                             Name = "Hundefører"

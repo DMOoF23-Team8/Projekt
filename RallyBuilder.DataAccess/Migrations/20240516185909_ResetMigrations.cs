@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RallyBuilder.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class ResetMigrations : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -67,19 +67,6 @@ namespace RallyBuilder.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CourseModels", x => x.CourseModelId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Rallies",
-                columns: table => new
-                {
-                    RallyId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RallyName = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rallies", x => x.RallyId);
                 });
 
             migrationBuilder.CreateTable(
@@ -236,10 +223,10 @@ namespace RallyBuilder.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "2b1dc6d9-01e3-4e2f-8e37-bd5f59949f6d", null, "Administrator", "ADMINISTRATOR" },
-                    { "774150f1-64f3-41e3-b634-9ed412dd0e22", null, "Instruktør", "INSTRUKTØR" },
-                    { "e6ce3858-625a-4ff8-8061-d9d22e67e4c0", null, "Hundefører", "HUNDEFØRER" },
-                    { "fd2c0fbf-063b-4f11-9a33-60f993ebb223", null, "Dommer", "DOMMER" }
+                    { "0bf1a9c0-544e-4b04-a3e0-fc2a9c2c9eaf", null, "Hundefører", "HUNDEFØRER" },
+                    { "3aa08b6c-36ac-4726-bf19-bcae77962c35", null, "Dommer", "DOMMER" },
+                    { "56890e2b-5b33-48d5-9ff6-a64607a25089", null, "Administrator", "ADMINISTRATOR" },
+                    { "9e6a024e-3002-4ed6-94d7-b5988fec3bfb", null, "Instruktør", "INSTRUKTØR" }
                 });
 
             migrationBuilder.InsertData(
@@ -247,10 +234,10 @@ namespace RallyBuilder.DataAccess.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Location", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "6253e240-f04d-4dc0-81c8-9726e145221c", 0, "318708c9-154e-48a8-9d4b-e3aa3cba9bd6", "ApplicationUser", "administrator@test.com", false, null, false, null, "Admin", "ADMINISTRATOR@TEST.COM", "ADMINISTRATOR@TEST.COM", "AQAAAAIAAYagAAAAEEYB90eVO5WHb2d8b4cRjjb5+pBdNxGb2bIbjyC1gnN8cRuFMd+URsfA/ykmFg25aA==", null, false, "f2471d6f-88ed-4379-a60a-6acabe2e19a1", false, "administrator@test.com" },
-                    { "96b6c59d-64f3-4513-bd3f-6f4b905a52a6", 0, "11ca109a-7f3e-4d06-8a51-0bad7a7f6f8b", "ApplicationUser", "hundefører@test.com", false, null, false, null, "Hundefører", "HUNDEFØRER@TEST.COM", "HUNDEFØRER@TEST.COM", "AQAAAAIAAYagAAAAEGfsujG6H+ca1MVglH/pfNZLFg2KzDLXAPN/FpWsbLOwgq8/uwE4Dwd2j4Mb12rKGQ==", null, false, "b6223e3a-4bd7-46c1-b563-62875835afa4", false, "hundefører@test.com" },
-                    { "a7174963-6b35-4c04-8133-a45abf4914d8", 0, "778a5e51-85f9-4f67-a219-641bdfeea9ae", "ApplicationUser", "instruktør@test.com", false, null, false, null, "Instruktør", "INSTRUKTØR@TEST.COM", "INSTRUKTØR@TEST.COM", "AQAAAAIAAYagAAAAEJL2QCTEaVzUj3Ku2JLssgE0IJzsEuXtY9qlGSMd6/31InfuBF7PJgGLK0p1pWYskQ==", null, false, "62d3a90f-06df-442b-b00e-3a3ba3e58f5f", false, "instruktør@test.com" },
-                    { "e57fc725-7672-4e47-bfbf-58f9cbf8ca69", 0, "8118d86f-8439-4759-8d8b-c256639aa2dd", "ApplicationUser", "dommer@test.com", false, null, false, null, "Dommer", "DOMMER@TEST.COM", "DOMMER@TEST.COM", "AQAAAAIAAYagAAAAEJbt2ScHUzAD/ZNIaNaTSp+xugRn8rIfBSdfsRPqcr1yf7jCKXEO35j5iewn//Rx9A==", null, false, "355c8428-64a5-4dec-8633-1565dd380fec", false, "dommer@test.com" }
+                    { "03f7b721-95ac-4c20-a2d0-ed099f4e7997", 0, "d8b8d276-5748-4088-a046-357e321429ec", "ApplicationUser", "administrator@test.com", false, null, false, null, "Admin", "ADMINISTRATOR@TEST.COM", "ADMINISTRATOR@TEST.COM", "AQAAAAIAAYagAAAAEGsiUuSWMeRJx4zXsFgIJfS82z7wQtDgdYLboohkQEZHL5d5xp23AVAxHAv6itVf6Q==", null, false, "cfb1bcd1-177c-4710-af1a-370345b809df", false, "administrator@test.com" },
+                    { "70bf3f06-9243-43af-afbe-3a3af69b0184", 0, "03383a40-f4db-4699-8269-14a6868b8fcc", "ApplicationUser", "instruktør@test.com", false, null, false, null, "Instruktør", "INSTRUKTØR@TEST.COM", "INSTRUKTØR@TEST.COM", "AQAAAAIAAYagAAAAEPBMlS1FhyA5aeuLgO4QO71RqbQF91xPFutkxtq7iXk8Le/iyezVKZCl0ZaXbdkt2w==", null, false, "56baf073-b425-4957-9a04-fca395915340", false, "instruktør@test.com" },
+                    { "723e62ec-b654-4934-825f-49827aa47525", 0, "4ab80a7b-f5b9-41bb-9dad-4034892c78a8", "ApplicationUser", "dommer@test.com", false, null, false, null, "Dommer", "DOMMER@TEST.COM", "DOMMER@TEST.COM", "AQAAAAIAAYagAAAAEOvDs3x2FIUFgNE6SdYdo262B263FIns4E7ydVt4UvCQ/8cvSJexr2KNoA9cN/KvCQ==", null, false, "19a2fa0c-a879-4d99-b1a3-dbb0c61e0027", false, "dommer@test.com" },
+                    { "881e6eef-7615-4edd-860a-6b2cd8855561", 0, "18fc8397-caf5-4821-a246-af73cc268954", "ApplicationUser", "hundefører@test.com", false, null, false, null, "Hundefører", "HUNDEFØRER@TEST.COM", "HUNDEFØRER@TEST.COM", "AQAAAAIAAYagAAAAEFkOQs2PWF5Ur6V7MSnURAf9my/exBeCHZvj0FVnPAbVe/eMA3e7obUE3DMJl1k9Vg==", null, false, "e7605ef5-4a70-480d-b7bd-d2a50ef3ed31", false, "hundefører@test.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -258,10 +245,10 @@ namespace RallyBuilder.DataAccess.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "2b1dc6d9-01e3-4e2f-8e37-bd5f59949f6d", "6253e240-f04d-4dc0-81c8-9726e145221c" },
-                    { "e6ce3858-625a-4ff8-8061-d9d22e67e4c0", "96b6c59d-64f3-4513-bd3f-6f4b905a52a6" },
-                    { "774150f1-64f3-41e3-b634-9ed412dd0e22", "a7174963-6b35-4c04-8133-a45abf4914d8" },
-                    { "fd2c0fbf-063b-4f11-9a33-60f993ebb223", "e57fc725-7672-4e47-bfbf-58f9cbf8ca69" }
+                    { "56890e2b-5b33-48d5-9ff6-a64607a25089", "03f7b721-95ac-4c20-a2d0-ed099f4e7997" },
+                    { "9e6a024e-3002-4ed6-94d7-b5988fec3bfb", "70bf3f06-9243-43af-afbe-3a3af69b0184" },
+                    { "3aa08b6c-36ac-4726-bf19-bcae77962c35", "723e62ec-b654-4934-825f-49827aa47525" },
+                    { "0bf1a9c0-544e-4b04-a3e0-fc2a9c2c9eaf", "881e6eef-7615-4edd-860a-6b2cd8855561" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -334,9 +321,6 @@ namespace RallyBuilder.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "CourseSignEntries");
-
-            migrationBuilder.DropTable(
-                name: "Rallies");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

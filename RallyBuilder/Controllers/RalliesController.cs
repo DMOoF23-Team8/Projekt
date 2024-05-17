@@ -1,47 +1,41 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RallyBuilder.Services;
+using RallyBuilder.Models;
+using RallyBuilder.ViewModels;
 
-namespace RallyBuilder.Controllers
+namespace RallyBuilder.Controllers;
+
+public class RalliesController : Controller
 {
+    private readonly RallyServiceVM _vm;
 
-    public class RalliesController : Controller
+    public RalliesController(RallyServiceVM viewModel)
     {
-        private readonly IRallyService _rallyService;
-        public RalliesController(IRallyService rallyService)
-        {
-            _rallyService = rallyService;
-        }
+        _vm = viewModel;
+    }
 
-        public async Task<IActionResult> Homepage()
-        {
-             return View("Homepage");
-        }
-
-        public async Task<IActionResult> GetRallies()
-        {
-            return View(
-                "All",
-                await _rallyService.GetRallies());
-        }
+    [HttpGet]
+    public IActionResult All()
+    {
+        return View(_vm);
+    }
 
 
-        [Authorize(Roles = "Administrator, Hundefører")]
-        public IActionResult GetRalliesByUser()
-        {
-            return View();
-        }
+    [Authorize(Roles = "Administrator, Hundefører")]
+    public IActionResult CreateRally()
+    {
+        return View("New");
+    }
 
-        [Authorize(Roles = "Administrator, Hundefører")]
-        public IActionResult CreateRally()
-        {
-            return View("New");
-        }
+    [HttpGet]
+    public IActionResult CourseBuilder()
+    {
+        return View();
+    }
 
-        public IActionResult CourseBuilder()
-        {
-            return View();
-        }
-
+    [HttpGet]
+    public IActionResult CourseBuilder(CourseModel courseModel)
+    {
+        return View();
     }
 }

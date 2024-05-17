@@ -17,12 +17,12 @@
     <header>
         <nav class="navbar navbar-expand-lg shadow-lg py-1">
             <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item"> <a class="nav-link" asp-controller="Rallies" asp-action="Homepage">HJEM</a> </li>
-                <li class="nav-item"> <a class="nav-link" asp-controller="Rallies" asp-action="GetRallies">SE RALLIES</a></li>
+                <li class="nav-item"> <a class="nav-link" asp-controller="Home" asp-action="Home">HJEM</a> </li>
+                <li class="nav-item"> <a class="nav-link" asp-controller="Rallies" asp-action="All">SE RALLIES</a></li>
 
                 @if (User.IsInRole("Hundefører") || User.IsInRole("Administrator"))
                 {
-                    <li class="nav-item"><a class="nav-link" asp-controller="Rallies" asp-action="CreateRally">OPRET RALLY</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Rallies" asp-action="CourseBuilder">OPRET RALLY</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Rallies" asp-action="GetRalliesByUser">MINE RALLIES</a></li>
                 }
             </ul>
