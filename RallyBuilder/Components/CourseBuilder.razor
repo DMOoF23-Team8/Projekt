@@ -14,9 +14,16 @@
             CourseModel? courseModel = dbContext.CourseModels
             .Include(cm => cm.CourseSignEntries)
             .ThenInclude(cse => cse.SignModel)
-            .FirstOrDefault(cm => cm.CourseModelId == 10);
+            .FirstOrDefault(cm => cm.CourseModelId == CourseModelIdToLoad);
 
-            CourseState.CourseModel = courseModel;
+            if(courseModel != null)
+            {
+                CourseState.CourseModel = courseModel;
+            }
+        }
+        else
+        {
+            dbContext.CourseModels.Add(CourseState.CourseModel);
         }
     }
 }

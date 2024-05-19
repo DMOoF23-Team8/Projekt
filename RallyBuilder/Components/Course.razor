@@ -127,7 +127,7 @@
     }
     private SignModel GetSignModel(int i)
     {
-        return CourseModel.CourseSignEntries?.FirstOrDefault(c => c.SquareNumber == i)?.SignModel;
+        return CourseModel?.CourseSignEntries?.FirstOrDefault(c => c.SquareNumber == i)?.SignModel;
     }
     private void Update()
     {
