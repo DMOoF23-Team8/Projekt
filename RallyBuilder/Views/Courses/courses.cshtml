@@ -14,14 +14,11 @@
                 {
                     <div class="col-4">
                         <div class="card">
-                            <a href="google.com" class="stretched-link"></a>
-
-                            <a href="@Url.Action("CourseBuilder", "Rallies")" class="stretched-link"></a>
-                            <img src="~/Images/poster.jpg" class="card-img-top">
+                            <a href="@Url.Action("GetCourseById", "Courses", new { id = courseModel.CourseModelId })" class="stretched-link"></a>
                             <div class="card-body">
 
                                 <h5 class="card-title">
-                                    Rally nummer: @courseModel.CourseModelId
+                                    Course ID: @courseModel.CourseModelId
                                 </h5>
                                 <p class="card-text">
                                     Lavet af: @courseModel.Author <br />
