@@ -1,0 +1,128 @@
+    <div class="course">
+        @for (int i = 0; i < 300; i++)
+        {
+            <ReadOnlyCourseGridElement GridElementId="@i" SignModel="@GetSignModel(i)"/>
+        }
+    </div>
+
+    
+    <div>
+        <select disabled="true" @bind="CourseState.CourseModel.Level">
+            @for (int i = 1; i < 5; i++)
+            {
+                var lvl = (Level)i;
+
+                <option value="@lvl">@lvl.ToString()</option>
+            }
+        </select>
+
+        <div>
+            <b>Begrænsninger:</b>
+            @switch (CourseState.CourseModel.Level)
+            {
+                case Level.Begynder : <p> 10-15 øvelser
+                                      </p> break;
+
+                case Level.Oevet    : <p> 12-17 øvelser/ 
+                                        Min 5 øvet skilte
+                                      </p> break;
+
+                case Level.Ekspert : <p> 16-20 øvelser/ 
+                                        Min 5 øvet skilte/
+                                        Min 3 ekspert skilte
+                                    </p> break;
+
+                case Level.Champion : <p> 18-20 øvelser/ 
+                                          Min 4 øvet skilte/
+                                          Min 1 ekspert skilt/
+                                          Min 5 Champion skilte
+                                    </p> break;
+            }
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    @for (int i = 1; i < 5; i++)
+                    {
+                        var lvl = (Level)i;
+
+                        <td><b>@lvl.ToString()</b></td>
+                    }       
+                    <td> <b>Alle</b> </td>
+                </tr>
+                @if (CourseState.CourseModel.CourseSignEntries != null)
+                {
+
+                    <tr>
+                        @for (int i = 1; i < 5; i++)
+                        {
+                            var lvl = (Level)i;
+
+                            <td>
+                                @CourseState.CourseModel.CourseSignEntries.Count(cse => cse.SignModel.Level == lvl)
+                            </td>
+                        }
+                        <td>
+                            @CourseState.CourseModel.CourseSignEntries.Count(cse => cse.SignModel.Level != Level.NA)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td class="header"><b>Skilt nr.</b></td>
+                @for (int i = 1; i < 21; i++)
+                {
+                    <td>@i</td>
+                }
+            </tr>
+            <tr>     
+                <td class="header"><b>Øvelse nr.</b></td>
+                @foreach(var cse in CourseState.CourseModel.CourseSignEntries)
+                {
+                    @if (cse.SignModel.Level != Level.NA)
+                    {
+                        <td> @cse.SignModel.Number </td>
+                    }
+                }
+            </tr>
+        </tbody>
+    </table>
+
+@code {
+    [Inject] public ICourseState CourseState { get; set; }
+    [Inject] ApplicationDatabaseContext dbContext { get; set; }
+    [Parameter] public int? CourseModelIdToLoad {get; set;}
+    public CourseModel CourseModel { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (CourseModelIdToLoad != null)
+        {
+            CourseModel? courseModel = dbContext.CourseModels
+            .Include(cm => cm.CourseSignEntries)
+            .ThenInclude(cse => cse.SignModel)
+            .FirstOrDefault(cm => cm.CourseModelId == CourseModelIdToLoad);
+
+            if (courseModel != null)
+            {
+                CourseState.CourseModel = courseModel;
+            }
+        }
+        else
+        {
+            dbContext.CourseModels.Add(CourseState.CourseModel);
+        }
+        CourseModel = CourseState.CourseModel;
+    }
+    private SignModel GetSignModel(int i)
+    {
+        SignModel? signModel = CourseModel?.CourseSignEntries?.FirstOrDefault(c => c.SquareNumber == i)?.SignModel;
+        return signModel;
+    }
+}

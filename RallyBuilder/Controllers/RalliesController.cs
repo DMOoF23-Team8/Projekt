@@ -30,6 +30,6 @@ public class RalliesController : Controller
     [HttpGet]
     public IActionResult CourseBuilder()
     {
-        return View();
+        return View(2);
     }
 }

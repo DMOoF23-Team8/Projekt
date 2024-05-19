@@ -1,0 +1,9 @@
+<div class="coursegridelement">
+    <ReadOnlySign SignModel="SignModel"/>
+</div>
+
+@code {
+    [Inject] public ICourseState CourseState {get; set;}
+    [Parameter] public int GridElementId {get; set;}
+    [Parameter] public SignModel? SignModel {get; set;}
+}

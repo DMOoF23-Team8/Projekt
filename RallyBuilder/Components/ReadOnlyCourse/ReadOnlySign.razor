@@ -1,0 +1,11 @@
+<img class="@(SignModel?.Level?.ToString().ToLower() ?? "") @(SignModel?.Level?.ToString() != "NA" ? "sign" : "") allsigns"
+     src="@IconPath"
+     />
+
+@code {
+    [Parameter] public SignModel? SignModel {get; set;}
+    public string IconPath
+    {
+        get {return SignModel != null ? SignModel.IconPath : "";}
+    }
+}
