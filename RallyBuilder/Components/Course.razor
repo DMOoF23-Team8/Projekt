@@ -1,4 +1,3 @@
-<div class="cbcontainer">
     <div class="course">
         @for (int i = 0; i < 300; i++)
         {
@@ -113,8 +112,6 @@
 
 
     <button @onclick="Update" disabled="@(!CourseState.CourseModelIsValid())">Save</button>
-
-</div>
 
 @code {
     [Inject] public ICourseState CourseState { get; set; }
