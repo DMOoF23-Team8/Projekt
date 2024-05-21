@@ -36,8 +36,6 @@ namespace RallyBuilder.DataAccess
             {
                 new ApplicationUser
                 {
-                    Name = "Admin",
-
                     UserName = "administrator@test.com",
                     Email = "administrator@test.com",
                     NormalizedUserName = "administrator@test.com".ToUpper(),
@@ -46,8 +44,6 @@ namespace RallyBuilder.DataAccess
                 },
                 new ApplicationUser
                 {
-                    Name = "Dommer",
-
                     UserName = "dommer@test.com",
                     Email = "dommer@test.com",
                     NormalizedUserName = "dommer@test.com".ToUpper(),
@@ -56,8 +52,6 @@ namespace RallyBuilder.DataAccess
                 },
                 new ApplicationUser
                 {
-                    Name = "Instruktør",
-
                     UserName = "instruktør@test.com",
                     Email = "instruktør@test.com",
                     NormalizedUserName = "instruktør@test.com".ToUpper(),
@@ -66,8 +60,6 @@ namespace RallyBuilder.DataAccess
                 },
                 new ApplicationUser
                 {
-                    Name = "Hundefører",
-
                     UserName = "hundefører@test.com",
                     Email = "hundefører@test.com",
                     NormalizedUserName = "hundefører@test.com".ToUpper(),

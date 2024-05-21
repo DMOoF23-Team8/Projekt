@@ -55,10 +55,6 @@ namespace RallyBuilder.Areas.Identity.Pages.Account
             [Display(Name = "Bekræft password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-
-            [Required]
-            [Display(Name = "Navn")]
-            public string Name { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -81,8 +77,6 @@ namespace RallyBuilder.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
-                // Assign model properties
-                user.Name = Input.Name;
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
 

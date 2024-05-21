@@ -5,7 +5,5 @@ namespace RallyBuilder.Models;
 public class ApplicationUser : IdentityUser
 {
     //Relevant data for custom users
-    public string? Name { get; set; }
-
     public string? Location { get; set; }
 }
