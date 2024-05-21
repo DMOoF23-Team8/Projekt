@@ -10,20 +10,12 @@
 @code {
     [Inject] ICourseState CourseState {get; set;}
     [Inject] ApplicationDatabaseContext dbContext {get; set;}
-    [Parameter] public int? CourseModelIdToLoad {get; set;}
+    [Parameter] public CourseModel? CourseModelToLoad {get; set;}
     protected override void OnInitialized()
     {
-        if(CourseModelIdToLoad != null)
+        if (CourseModelToLoad != null)
         {
-            CourseModel? courseModel = dbContext.CourseModels
-            .Include(cm => cm.CourseSignEntries)
-            .ThenInclude(cse => cse.SignModel)
-            .FirstOrDefault(cm => cm.CourseModelId == CourseModelIdToLoad);
-
-            if(courseModel != null)
-            {
-                CourseState.CourseModel = courseModel;
-            }
+            CourseState.CourseModel = CourseModelToLoad;
         }
         else
         {

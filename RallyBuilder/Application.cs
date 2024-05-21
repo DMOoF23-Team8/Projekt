@@ -26,7 +26,7 @@ public class Application
                     new MySqlServerVersion(new Version(10, 11, 6)),
                     assembly => assembly.MigrationsAssembly("RallyBuilder.DataAccess"))
                 );
-
+            
 
             //Identity and authorized routing
             webApplicationBuilder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDatabaseContext>().AddDefaultTokenProviders();
@@ -44,6 +44,7 @@ public class Application
             webApplicationBuilder.Services.AddScoped<IAdminService, AdminService>();
             webApplicationBuilder.Services.AddScoped<IRallyService, RallyService>();
             webApplicationBuilder.Services.AddScoped<ICourseState, CourseState>();
+            webApplicationBuilder.Services.AddScoped<ICoursesService, CoursesService>();
 
         }
 

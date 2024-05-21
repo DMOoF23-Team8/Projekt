@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RallyBuilder.Components;
 using RallyBuilder.Models;
 using RallyBuilder.ViewModels;
+using RallyBuilder.Services;
 
 namespace RallyBuilder.Controllers;
 
@@ -10,10 +11,12 @@ namespace RallyBuilder.Controllers;
 public class CoursesController : Controller
 {
     private readonly RallyServiceVM vm;
+    private readonly ICoursesService coursesService;
 
-    public CoursesController(RallyServiceVM viewModel)
+    public CoursesController(RallyServiceVM viewModel, ICoursesService coursesService)
     {
         vm = viewModel;
+        this.coursesService = coursesService;
     }
 
     //Route for viewing all courses
@@ -34,14 +37,20 @@ public class CoursesController : Controller
     [HttpGet("courses/coursebuilder/{id?}")]
     public IActionResult GetCourseById(int? id)
     {
-        switch (id)
+        CourseModel? courseModel = coursesService.GetCourseModelById(id);
+        if(courseModel == null)
         {
-            case null:
-            case 0:
-                return RedirectToAction("GetNewCourse");
-
-            case not null:
-                return View("coursebuilder", id);
+            return RedirectToAction("Error", "Home");
         }
+        return View("coursebuilder", courseModel);
+        // switch (id)
+        // {
+        //     case null:
+        //     case 0:
+        //         return RedirectToAction("GetNewCourse");
+
+        //     case not null:
+        //         return View("coursebuilder", id);
+        // }
     }
 }
