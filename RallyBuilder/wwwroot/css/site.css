@@ -68,16 +68,21 @@ body {
   
 }
 
-.sign img {
+/* .sign img {
   width: 23%;
   height: auto;
-}
+} */
 
 .signscontainer {
   overflow: auto; 
   margin: 5px;
   float: left;
   flex-grow: 1;
+}
+.arrowcontainer {
+  border: solid 2px grey;
+  text-align: center;
+  margin: 2px;
 }
 /* CourseBuilder css */
 .coursebuilder {

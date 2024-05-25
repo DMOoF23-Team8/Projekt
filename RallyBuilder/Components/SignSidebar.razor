@@ -15,6 +15,13 @@
             <Sign SignModel="s" HandleDragStartDelegate="signModel => CourseState.Payload = signModel" />
         }
     </div>
+    <div class="arrowcontainer">
+        @for(int i = 153; i < 157; i++)
+        {
+            SignModel signModel = DatabaseContext.SignModels.FirstOrDefault(s => s.SignModelId == i);
+            <Sign SignModel="signModel" HandleDragStartDelegate="signModel => CourseState.Payload = signModel" />
+        }
+    </div>
 </div>
 
 @code {
