@@ -1,0 +1,193 @@
+@startuml
+
+package "Blazor Components" {
+    class CourseBuilder {
+        - CourseState : ICourseState
+        - dbContext : ApplicationDatabaseContext
+        + CourseModelToLoad : CourseModel
+
+        # OnInitialized()
+        }
+    class Course {
+        - CourseState : ICourseState
+        - dbContext : ApplicationDatabaseContext
+        + CourseModel : CourseModel
+
+        # OnInitialized()
+        - GetSignModel(int i) : SignModel
+        - Update()
+        - HandleNotificationFromChild()
+        }
+    class SignSidebar {
+        - CourseState : ICourseState
+        - dbContext : ApplicationDatabaseContext
+        - SelectedSigns : List<SignModel>
+        - activeButton : string
+
+        # OnInitialized()
+        - HandleClickAlle()
+        - HandleClickBeg()
+        - HandleClickOev()
+        - HandleClickEks()
+        - HandleClickCh()
+        - HandleClickMisc()
+        }
+    class CourseGridElement {
+        - CourseState : ICourseState
+        - CouresModel : CourseModel
+        + SignModel : SignModel
+        + OnNotifyParent : EventCallback
+
+        #OnInitialized()
+        - NotifyParent()
+        - HandleDragEnter()
+        - HandleDragLeave()
+        - HandleDragStart
+        }
+    class Sign {
+        + SignModel : SignModel
+        + HandleDragStartDelegate : Action<SignModel>
+        + InlineStyle : string
+        }
+
+    CourseBuilder "*" -- "1" Course
+    Course "1" -- "*" CourseGridElement
+    CourseGridElement "1" -- "1" Sign
+    CourseBuilder "1" -- "1" SignSidebar
+    SignSidebar "1" -- "*" Sign
+}
+package "Models" {
+    class "ApplicationUser : IdentityUser" {
+        + Location: string
+    }
+    class CourseModel {
+        + CourseModelId : int
+        + Author : string
+        + Level : Level
+        + CreatedByUserId : string
+        + CourseSignEntries : List<CourseSignEntry>
+    }
+    class CourseSignEntry {
+        + CourseSignEntryId : int
+        + SignModel : SignModel
+        + SignNumberOnCourse : int
+        + SquareNumber : int
+        + CourseModelId : int
+    }
+    enum Level {
+        NA
+        Begynder
+        Oevet
+        Ekspert
+        Champion
+    }
+    class SignModel{
+        + SignModelId : int
+        + Number : int
+        + Name : string
+        + Level : Level
+        + IconPath : string
+    }
+
+    CourseModel "1" -- "*" CourseSignEntry
+    CourseSignEntry "*" -- "1" SignModel
+}
+
+package "Controllers" {
+    class HomeController {
+        + Home() : IActionResult
+        + Error() : IActionResult
+    }
+    class CoursesController {
+        - vm : RallyServiceVM
+        - coursesService : ICoursesService
+
+        + GetAllCourses() : IActionResult
+        + GetNewCourse() : IActionResult
+        + GetCourseById() : IActionResult
+    }
+    class AdminController {
+        - _vm : AdminServiceVM
+
+        + Users() : IActionResult
+        + DeleteApplicationUser() : IActionResult
+    }
+}
+
+package "Services" {
+    interface IAdminService {
+        GetApplicationUser() : List<ApplicationUser>
+        GetIdentityRoles() : List<IdentityRole>
+        GetIdentityUserRoles() : List<IdentityUserRole>
+        DeleteApplicationUser(string UserId)
+    }
+    interface ICoursesService {
+        GetCourseModelById(object Id) : CourseModel
+    }
+    interface ICourseState {
+        Payload : SignModel
+        CourseModel : CourseModel
+
+        CourseModelIsValid() : bool
+    }
+    interface IRallyService {
+        GetCourseModels() : List<CourseModel>
+        GetCourseSignEntries() : List<CourseSignEntries>
+    }
+    class AdminService {
+        - _userManager : UserManager<IdentityUser>
+        - _dbFactory : IDbContextFactory<ApplicationDatabaseContext>
+        - _databaseContext : ApplicationDatabaseContext
+
+        + GetApplicationUsers() : List<ApplicationUser>
+        + GetIdentityRoles() : List<IdentityRole>
+        + GetIdentityUserRoles() : List<IdentityUserRole>
+        + DeleteApplicationUser()
+    }
+    class CoursesService {
+        - _dbContext : ApplicationDatabaseContext
+        
+        + GetCourseModelById(object Id) : CourseModel
+    }
+    class CourseState {
+        + Payload : SignModel
+        + CourseModel : CourseModel
+
+        + CourseModelIsValid() : bool
+        - BegynderCourseModelIsValid() : bool
+        - OevetCourseModelIsValid() : bool
+        - EkspertCourseModelIsValid() : bool
+        - ChampionCourseModelIsValid() : bool
+    }
+    class RallyService {
+        - _dbFactory : IDbContextFactory<ApplicationDatabaseContext>
+        - _databaseContext : ApplicationDatabaseContext
+        + GetCourseModels() : List<CourseModel>
+        + GetCourseSignEntries() : List<CourseSignEntries>
+    }
+
+    class AdminService implements IAdminService
+    class CoursesService implements ICoursesService
+    class CourseState implements ICourseState
+    class RallyService implements IRallyService
+}
+
+package "ViewModels" {
+    class AdminServiceVM {
+        + _adminService : IAdminService
+        + ApplicationUsers : List<ApplicationUser>
+        + IdentityRoles : List<IdentityRole>
+        + IdentityUserRoles : List<IdentityUserRole>
+
+        RefresherAsync()
+    }
+    class RallyServiceVM {
+        + _rallyService : List<CourseModel>
+        + CourseModels : List<CourseModel>
+        + CourseSignEntries : List<CourseSignEntry>
+
+        + RefresherAsync()
+    }
+}
+
+@enduml

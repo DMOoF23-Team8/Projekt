@@ -1,0 +1,29 @@
+@startuml erd
+class Skilt {
+    Skiltenummer
+    Navn
+    Klasse
+    Forhindringstype
+    Beskrivelse
+    Ikon
+    Tegning
+    }
+class Rallybane {
+    Sted
+    Dato
+    Lavet af
+    Dommer
+    Rallyklasse
+    Tema
+    Antal forhindringer
+    Banetegning
+    }
+class Bruger {
+    Navn
+    Rolle
+    }
+Bruger "1" -- "*" Rallybane
+Skilt "10..20" -- "1" Rallybane
+
+hide methods
+@enduml

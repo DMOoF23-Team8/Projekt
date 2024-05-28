@@ -23,7 +23,7 @@ public class CourseState : ICourseState
             default : return false;
         }
     }
-    public bool BegynderCourseModelIsValid()
+    private bool BegynderCourseModelIsValid()
     {
         int totalSigns = CourseModel.CourseSignEntries.Count(cse => cse.SignModel.Level != Level.NA);
         if(totalSigns > 9 && totalSigns <16)

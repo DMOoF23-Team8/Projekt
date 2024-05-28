@@ -29,15 +29,8 @@ public class CoursesController : Controller
 
     //Route for creating a new course (opening the course builder)
     [Authorize]
-    [HttpGet("courses/coursebuilder/")]
-    public IActionResult GetNewCourse()
-    {
-        return View("coursebuilder");
-    }
-
-    [Authorize]
     [HttpGet("courses/newcourse")]
-    public IActionResult NewRally()
+    public IActionResult GetNewCourse()
     {
         CourseModel courseModel = new();
         courseModel.CreatedByUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -51,7 +44,7 @@ public class CoursesController : Controller
     public IActionResult GetCourseById(int? id)
     {
         CourseModel? courseModel = coursesService.GetCourseModelById(id);
-        if(courseModel == null)
+        if (courseModel == null)
         {
             return RedirectToAction("Error", "Home");
         }
