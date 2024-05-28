@@ -1,21 +1,32 @@
 <div class="row" style="margin-top: 20px">
-        <div class="col-xl-4">
-            <SignSidebar />
-        </div>
-        <div class="col-xl-8">
-            <Course />
-        </div>
+    <div class="col-xl-4">
+        <SignSidebar />
+    </div>
+    <div class="col-xl-8">
+        <Course />
+    </div>
 </div>
 
 @code {
-    [Inject] ICourseState CourseState {get; set;}
-    [Inject] ApplicationDatabaseContext dbContext {get; set;}
-    [Parameter] public CourseModel? CourseModelToLoad {get; set;}
+    [Inject] ICourseState CourseState { get; set; }
+    [Inject] ApplicationDatabaseContext dbContext { get; set; }
+    [Parameter] public CourseModel? CourseModelToLoad { get; set; }
     protected override void OnInitialized()
     {
         if (CourseModelToLoad != null)
         {
-            CourseState.CourseModel = CourseModelToLoad;
+            if (CourseModelToLoad.CourseModelId != 0)
+            {
+                CourseState.CourseModel = dbContext.CourseModels
+                .Include(cm => cm.CourseSignEntries)
+                .ThenInclude(cse => cse.SignModel)
+                .FirstOrDefault(cm => cm.CourseModelId == CourseModelToLoad.CourseModelId);
+            }
+            else
+            {
+                dbContext.CourseModels.Add(CourseModelToLoad);
+                CourseState.CourseModel = CourseModelToLoad;
+            }
         }
         else
         {
@@ -23,3 +34,4 @@
         }
     }
 }
+

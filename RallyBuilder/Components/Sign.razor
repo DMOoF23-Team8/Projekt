@@ -1,4 +1,5 @@
 <img class="@(SignModel?.Level?.ToString().ToLower() ?? "") @(SignModel?.Level?.ToString() != "NA" ? "sign" : "") allsigns"
+     style="@InlineStyle"
      src="@IconPath"
      draggable="true"
      @ondragstart="() => HandleDragStartDelegate?.Invoke(SignModel)"
@@ -8,6 +9,7 @@
 @code {
     [Parameter] public SignModel? SignModel {get; set;}
     [Parameter] public Action<SignModel> HandleDragStartDelegate {get; set;}
+    [Parameter] public string? InlineStyle {get; set;}
     public string IconPath
     {
         get {return SignModel != null ? SignModel.IconPath : "";}

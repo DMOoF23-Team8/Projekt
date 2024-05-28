@@ -22,7 +22,7 @@
 
                 @if (User.IsInRole("Hundefører") || User.IsInRole("Administrator"))
                 {
-                    <li class="nav-item"><a class="nav-link" asp-controller="Courses" asp-action="GetAllCourses">OPRET RALLY</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Courses" asp-action="NewRally">OPRET RALLY</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Courses" asp-action="GetCoursesByUser">MINE RALLIES</a></li>
                 }
             </ul>

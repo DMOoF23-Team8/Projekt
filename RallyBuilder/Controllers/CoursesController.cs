@@ -4,6 +4,7 @@ using RallyBuilder.Components;
 using RallyBuilder.Models;
 using RallyBuilder.ViewModels;
 using RallyBuilder.Services;
+using System.Security.Claims;
 
 namespace RallyBuilder.Controllers;
 
@@ -27,13 +28,25 @@ public class CoursesController : Controller
     }
 
     //Route for creating a new course (opening the course builder)
+    [Authorize]
     [HttpGet("courses/coursebuilder/")]
     public IActionResult GetNewCourse()
     {
         return View("coursebuilder");
     }
 
+    [Authorize]
+    [HttpGet("courses/newcourse")]
+    public IActionResult NewRally()
+    {
+        CourseModel courseModel = new();
+        courseModel.CreatedByUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        return View("coursebuilder", courseModel);
+    }
+
     //Route for viewing courses by course ID
+    [Authorize]
     [HttpGet("courses/coursebuilder/{id?}")]
     public IActionResult GetCourseById(int? id)
     {
@@ -43,14 +56,5 @@ public class CoursesController : Controller
             return RedirectToAction("Error", "Home");
         }
         return View("coursebuilder", courseModel);
-        // switch (id)
-        // {
-        //     case null:
-        //     case 0:
-        //         return RedirectToAction("GetNewCourse");
-
-        //     case not null:
-        //         return View("coursebuilder", id);
-        // }
     }
 }

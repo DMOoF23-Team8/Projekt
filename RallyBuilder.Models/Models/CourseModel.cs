@@ -6,4 +6,5 @@ public class CourseModel {
     public string Author {get; set;} = "Dr Jones";
     public Level Level {get; set;} = Level.Begynder;
     public List<CourseSignEntry> CourseSignEntries {get; set;} = new List<CourseSignEntry>();
+    public string? CreatedByUserId {get; set;}
 }

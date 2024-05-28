@@ -129,10 +129,6 @@
     private void Update()
     {
         context.SaveChanges();
-        @* var courseSignEntriesToDelete = context.CourseSignEntries
-            .Where(cse => cse.CourseModelId == null);
-        context.CourseSignEntries.RemoveRange(courseSignEntriesToDelete);
-        context.SaveChanges(); *@
     }
     private void HandleNotificationFromChild()
     {

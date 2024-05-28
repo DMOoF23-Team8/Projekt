@@ -1,17 +1,18 @@
 using RallyBuilder.DataAccess;
 using RallyBuilder.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace RallyBuilder.Services;
 public class CoursesService : ICoursesService
 {
-    public ApplicationDatabaseContext DbContext { get; set; }
+    private readonly ApplicationDatabaseContext _dbContext;
 
     public CoursesService(ApplicationDatabaseContext dbContext)
     {
-        DbContext = dbContext;
+        _dbContext = dbContext;
     }
-    
+
     public CourseModel? GetCourseModelById(object Id)
     {
         if (!(Id is int))
@@ -21,9 +22,9 @@ public class CoursesService : ICoursesService
 
         int CourseModelIdToLoad = (int)Id;
 
-        CourseModel? courseModel = DbContext.CourseModels
+        CourseModel? courseModel = _dbContext.CourseModels
         .Include(cm => cm.CourseSignEntries)
-        .ThenInclude(cse => cse.SignModel)
+            .ThenInclude(cse => cse.SignModel)
         .FirstOrDefault(cm => cm.CourseModelId == CourseModelIdToLoad);
 
         return courseModel;
