@@ -1,27 +1,24 @@
 @startuml erd
+left to right direction
+
 class Skilt {
     Skiltenummer
     Navn
-    Klasse
-    Forhindringstype
-    Beskrivelse
+    Niveau
     Ikon
     Tegning
-    }
-class Rallybane {
-    Sted
-    Dato
-    Lavet af
-    Dommer
-    Rallyklasse
-    Tema
-    Antal forhindringer
-    Banetegning
     }
 class Bruger {
     Navn
     Rolle
     }
+class Rallybane {
+    Lavet af
+    Niveau
+    Tema
+    Antal skilte
+    }
+
 Bruger "1" -- "*" Rallybane
 Skilt "10..20" -- "1" Rallybane
 
